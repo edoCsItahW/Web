@@ -435,14 +435,14 @@ var a = {
 
 此函数还返回一个`Promise`，在完成时将`void`作为其参数。
 
-* `itemType` - numerical item id
-* `metadata` - numerical value. `null` means match anything.
-* `count` - how many to deposit. `null` is an alias to 1.
-* `callback(err)` - (optional) - called when done depositing
+* `itemType` - 数字的物品id
+* `metadata` - 数值. `null` 的意思是匹配任何内容。
+* `count` - 放置多少个. `null` 将放置1个.
+* `callback(err)` - (可选) - 放置完成时调用的回调函数.
 
 #### window.withdraw(itemType, metadata, count, [callback])
 
-This function also returns a `Promise`, with `void` as its argument upon completion.
+此函数还返回一个`Promise`，在完成时将`void`作为其参数。
 
 * `itemType` - numerical item id
 * `metadata` - numerical value. `null` means match anything.
@@ -457,12 +457,12 @@ See [prismarine-recipe](https://github.com/PrismarineJS/prismarine-recipe)
 
 ### mineflayer.Container
 
-Extends windows.Window for chests, dispensers, etc...
+扩展窗口。箱子、分配器等的窗户...
 See `bot.openContainer(chestBlock or minecartchestEntity)`.
 
 ### mineflayer.Furnace
 
-Extends windows.Window for furnace, smelter, etc...
+扩展窗口。熔炉、冶炼厂等的窗户...
 See `bot.openFurnace(furnaceBlock)`.
 
 #### furnace "update"

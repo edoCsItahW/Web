@@ -19,32 +19,14 @@
 // }
 //
 // system.run(mainTick);
-'use strict'
 const mineflayer = require('mineflayer')
-const pathfinder = require('mineflayer-pathfinder').pathfinder
 const collectBlock = require('mineflayer-collectblock').plugin
+const { mineflayer: mineflayerViewer } = require('prismarine-viewer')
+const { pathfinder, Movements, goals: { GoalNear } } = require('mineflayer-pathfinder')
+const { base } = require("./base")
 
-const bot = mineflayer.createBot({
-    host: 'localhost',
-    port: 25565,
-    username: 'bot1'
-})
+const bs = new base("baseBot", true, true)
 
-const bot2 = mineflayer.createBot({
-    host: 'localhost',
-    port: 25565,
-    username: 'bot2'
-})
-
-bot.on('message', (message) => {
-    /*
-    * 重定向聊天信息到控制台
-    * */
-    console.log(message.toAnsi())
-})
-
-bot2.on('whisper', (username, message) => {
-    console.log(`I received a whisper from ${username}: ${message}`)
-})
-
-bot.on('error', console.log)
+// bs.bot.on('heldItemChanged', heldItem => {
+//     console.log(heldItem)
+// })
