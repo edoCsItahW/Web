@@ -444,81 +444,81 @@ var a = {
 
 此函数还返回一个`Promise`，在完成时将`void`作为其参数。
 
-* `itemType` - numerical item id
-* `metadata` - numerical value. `null` means match anything.
-* `count` - how many to withdraw. `null` is an alias to 1.
-* `callback(err)` - (optional) - called when done withdrawing
+* `itemType` - 数字的物品id
+* `metadata` - 数值. `null` 的意思是匹配任何内容.
+* `count` - 提取多少. `null` 将放置1个.
+* `callback(err)` - (optional) - (可选) - 提取完成时调用的回调函数.
 
 #### window.close()
 
 ### Recipe
 
-See [prismarine-recipe](https://github.com/PrismarineJS/prismarine-recipe)
+参见 [prismarine-recipe](https://github.com/PrismarineJS/prismarine-recipe)
 
 ### mineflayer.Container
 
-扩展窗口。箱子、分配器等的窗户...
-See `bot.openContainer(chestBlock or minecartchestEntity)`.
+扩展窗口。箱子、分配器等的窗口...
+参加 `bot.openContainer(chestBlock or minecartchestEntity)`.
 
 ### mineflayer.Furnace
 
-扩展窗口。熔炉、冶炼厂等的窗户...
-See `bot.openFurnace(furnaceBlock)`.
+扩展窗口。熔炉、冶炼厂等的窗口...
+参见 `bot.openFurnace(furnaceBlock)`.
 
 #### furnace "update"
 
-Fires when `furnace.fuel` and/or `furnace.progress` update.
+当 `furnace.fuel(熔炉.燃料)` 和/或 `furnace.progress(熔炉.进度)` 更新时激发.
 
 #### furnace.takeInput([callback])
 
-This function also returns a `Promise`, with `item` as its argument upon completion.
+此函数还返回一个`Promise`，完成时将`item`作为其参数.
 
 * `callback(err, item)`
 
 #### furnace.takeFuel([callback])
 
-This function also returns a `Promise`, with `item` as its argument upon completion.
+此函数还返回一个`Promise`，完成时将`item`作为其参数.
 
 * `callback(err, item)`
 
 #### furnace.takeOutput([callback])
 
-This function also returns a `Promise`, with `item` as its argument upon completion.
+此函数还返回一个`Promise`，完成时将`item`作为其参数.
 
 * `callback(err, item)`
 
 #### furnace.putInput(itemType, metadata, count, [cb])
 
-This function also returns a `Promise`, with `void` as its argument upon completion.
+此函数还返回一个`Promise`，在完成时将`void`作为其参数.
 
 #### furnace.putFuel(itemType, metadata, count, [cb])
 
-This function also returns a `Promise`, with `void` as its argument upon completion.
+此函数还返回一个`Promise`，在完成时将`void`作为其参数.
 
 #### furnace.inputItem()
 
-Returns `Item` instance which is the input.
+返回作为输入的`Item`实例.
 
 #### furnace.fuelItem()
 
-Returns `Item` instance which is the fuel.
+返回作为燃料的`Item`实例.
 
 #### furnace.outputItem()
 
-Returns `Item` instance which is the output.
+返回作为输出的`Item`实例.
 
 #### furnace.fuel
 
-How much fuel is left between 0 and 1.
+0和1之间还剩多少燃油.
 
 #### furnace.progress
 
-How much cooked the input is between 0 and 1.
+输入的烹饪程度介于0和1之间.
 
 ### mineflayer.EnchantmentTable
 
-Extends windows.Window for enchantment tables
-See `bot.openEnchantmentTable(enchantmentTableBlock)`.
+扩展窗口。附魔台窗口
+参见 `bot.openEnchantmentTable(enchantmentTableBlock)`.
 
 #### enchantmentTable "ready"
 

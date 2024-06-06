@@ -12,7 +12,6 @@ const { pathfinder, Movements, goals: { GoalNear } } = require('mineflayer-pathf
 const pvp = require('mineflayer-pvp').plugin
 // const { worker, isMainThread, parentPort } = require('worker_threads')
 
-
 function cached(target, key, descriptor) {
     if (typeof descriptor.value !== 'function') {
         throw new Error('@cached can only be used on methods');
@@ -78,7 +77,7 @@ class argsParser {
 }
 
 class base {
-    constructor(botName, messListening, viewFlag) {
+    constructor(botName, messListening, viewFlag, client=null) {
         this.messFlag = messListening
         this.botName = botName
         this.viewFlag = viewFlag
@@ -86,6 +85,7 @@ class base {
         this._moveCache = null
         this._callArr = []
         this.loop = null
+        this.client = client
 
         this.bot.loadPlugin(pathfinder)
         this.bot.loadPlugin(pvp)
@@ -97,7 +97,7 @@ class base {
     get bot() {
         if (!this._botCache) {
             this._botCache = mineflayer.createBot({
-                host: 'localhost',
+                host: '127.0.0.1',
                 port: 25565,
                 username: this.botName,
             })
@@ -124,7 +124,17 @@ class base {
             /*
             * 重定向聊天信息到控制台
             * */
+
             console.log(message.toAnsi())
+
+            if (this.client) {
+                this.client.write(message.toString())
+
+                this.client.on('data', (data) => {
+                    console.log(data.toString())
+                })
+            }
+
         })
     }
 
@@ -132,6 +142,8 @@ class base {
         bot.once('spawn', () => {
             mineflayerViewer(bot, { port: 3007, firstPerson: true }) // port 是本地网页运行的端口 ，如果 firstPerson: false，那么将会显示鸟瞰图。
         })
+
+        console.log('viewer启动于: 127.0.0.1:3007')
     }
 
     listenError() {

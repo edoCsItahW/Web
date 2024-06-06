@@ -2,6 +2,7 @@
   "dependencies": {
     "@minecraft/server": "^1.10.0",
     "@minecraft/server-gametest": "^1.0.0-beta.11940b24",
+    "mineflayer": "^4.20.1",
     "mineflayer-auto-eat": "^3.3.6",
     "prismarine-viewer": "^1.28.0",
     "yargs": "^17.7.2"

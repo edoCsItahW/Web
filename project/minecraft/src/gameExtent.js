@@ -25,8 +25,49 @@ const { mineflayer: mineflayerViewer } = require('prismarine-viewer')
 const { pathfinder, Movements, goals: { GoalNear } } = require('mineflayer-pathfinder')
 const { base } = require("./base")
 
-const bs = new base("baseBot", true, true)
 
+// const net = require('net')
+
+
+// const client = new net.Socket()
+
+// client.connect(9999, "localhost", () => {
+//     console.log('连接成功')
+
+const bs = new base("baseBot", true, false)  // , client)
+
+// })
+
+
+
+// function getCurrentCallerInfo() {
+//     const originalPrepareStackTrace = Error.prepareStackTrace;
+//     let callerInfo = null;
+//     try {
+//         const err = new Error();
+//         Error.prepareStackTrace = (err, stack) => stack;
+//         Error.captureStackTrace(err, getCurrentCallerInfo);
+//         const stack = err.stack;
+//         callerInfo = stack[1];
+//     } finally {
+//         Error.prepareStackTrace = originalPrepareStackTrace;
+//     }
+//     return callerInfo;
+// }
+//
+// const callerInfo = getCurrentCallerInfo();
+// if (callerInfo) {
+//     console.log('调用者函数名:', callerInfo.getFunctionName());
+//     console.log('调用者文件路径:', callerInfo.getFileName());
+//     console.log('调用者行号:', callerInfo.getLineNumber());
+// } else {
+//     console.log('无法获取调用者信息');
+// }
+
+//
 // bs.bot.on('heldItemChanged', heldItem => {
 //     console.log(heldItem)
 // })
+
+// 主要文件: minecraft-protocol/
+// client.js, setProtocol.js, ping.js, tcp_dns.js
