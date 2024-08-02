@@ -1,0 +1,28 @@
+# 排除node_modules目录
+node_modules/
+*/node_modules/
+dist/
+*/dist/
+Realease/
+*/Realease/
+build/
+*/build/
+
+tutorial/
+*/tutorial/
+vueBuild/
+*/vueBuild/
+mineflayer/
+*/mineflayer/
+pythonMemorandum/
+*/pythonMemorandum/
+
+# 排除IDE相关文件
+.idea/
+*/.idea/
+.vs/
+*/.vs/
+
+
+# 排除类型文件
+.zip

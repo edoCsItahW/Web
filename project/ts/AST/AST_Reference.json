@@ -1,0 +1,349 @@
+{
+  "imports": {
+    "'./computed'": [],
+    "'./effect'": [],
+    "'./constants'": [],
+    "'@vue/shared'": [],
+    "'./reactive'": [],
+    "'./dep'": [],
+    "'./reactiveEffect'": [],
+    "'./warning'": []
+  },
+  "classes": {
+    "RefImpl": {
+      "heritage": [],
+      "quote": {
+        "func": [
+          "toRaw",
+          "toReactive",
+          "trackRefValue",
+          "isShallow",
+          "isReadonly",
+          "hasChanged",
+          "triggerRefValue"
+        ],
+        "type": [
+          "Dep"
+        ]
+      }
+    },
+    "CustomRefImpl": {
+      "heritage": [],
+      "quote": {
+        "func": [
+          "factory",
+          "trackRefValue",
+          "triggerRefValue"
+        ],
+        "type": [
+          "Dep",
+          "ReturnType",
+          "CustomRefFactory"
+        ]
+      }
+    },
+    "ObjectRefImpl": {
+      "heritage": [],
+      "quote": {
+        "func": [
+          "getDepFromReactive",
+          "toRaw"
+        ],
+        "type": [
+          "K",
+          "Dep"
+        ]
+      }
+    },
+    "GetterRefImpl": {
+      "heritage": [],
+      "quote": {
+        "func": [],
+        "type": []
+      }
+    }
+  },
+  "interfaces": {},
+  "enums": {},
+  "functions": {
+    "trackRefValue": {
+      "quote": {
+        "func": [
+          "toRaw",
+          "trackEffect",
+          "createDep"
+        ],
+        "type": [
+          "RefBase"
+        ]
+      }
+    },
+    "triggerRefValue": {
+      "quote": {
+        "func": [
+          "toRaw",
+          "triggerEffects"
+        ],
+        "type": [
+          "RefBase",
+          "DirtyLevels"
+        ]
+      }
+    },
+    "isRef": {
+      "quote": {
+        "func": [],
+        "type": [
+          "Ref"
+        ]
+      }
+    },
+    "ref": {
+      "quote": {
+        "func": [
+          "createRef"
+        ],
+        "type": []
+      }
+    },
+    "shallowRef": {
+      "quote": {
+        "func": [
+          "createRef"
+        ],
+        "type": []
+      }
+    },
+    "createRef": {
+      "quote": {
+        "func": [
+          "isRef"
+        ],
+        "type": []
+      }
+    },
+    "triggerRef": {
+      "quote": {
+        "func": [
+          "triggerRefValue"
+        ],
+        "type": [
+          "Ref"
+        ]
+      }
+    },
+    "unref": {
+      "quote": {
+        "func": [
+          "isRef"
+        ],
+        "type": [
+          "MaybeRef",
+          "ComputedRef",
+          "ShallowRef"
+        ]
+      }
+    },
+    "toValue": {
+      "quote": {
+        "func": [
+          "isFunction",
+          "source",
+          "unref"
+        ],
+        "type": [
+          "MaybeRefOrGetter",
+          "ComputedRef",
+          "ShallowRef"
+        ]
+      }
+    },
+    "proxyRefs": {
+      "quote": {
+        "func": [
+          "isReactive"
+        ],
+        "type": [
+          "ShallowUnwrapRef"
+        ]
+      }
+    },
+    "customRef": {
+      "quote": {
+        "func": [],
+        "type": [
+          "CustomRefFactory",
+          "Ref"
+        ]
+      }
+    },
+    "toRefs": {
+      "quote": {
+        "func": [
+          "isProxy",
+          "warn",
+          "isArray",
+          "propertyToRef"
+        ],
+        "type": [
+          "ToRefs"
+        ]
+      }
+    },
+    "toRef": {
+      "quote": {
+        "func": [
+          "isRef",
+          "isFunction",
+          "isObject",
+          "propertyToRef",
+          "ref"
+        ],
+        "type": [
+          "Record",
+          "MaybeRef",
+          "Ref"
+        ]
+      }
+    },
+    "propertyToRef": {
+      "quote": {
+        "func": [
+          "isRef"
+        ],
+        "type": [
+          "Record"
+        ]
+      }
+    }
+  },
+  "variables": {},
+  "exports": {
+    "single": [
+      "RawSymbol",
+      "Ref",
+      "T",
+      "value",
+      "RefSymbol",
+      "RefBase",
+      "dep",
+      "Dep",
+      "trackRefValue",
+      "ref",
+      "shouldTrack",
+      "activeEffect",
+      "toRaw",
+      "trackEffect",
+      "createDep",
+      "undefined",
+      "ComputedRefImpl",
+      "__DEV__",
+      "target",
+      "type",
+      "TrackOpTypes",
+      "GET",
+      "key",
+      "triggerRefValue",
+      "dirtyLevel",
+      "DirtyLevels",
+      "Dirty",
+      "newVal",
+      "oldVal",
+      "triggerEffects",
+      "TriggerOpTypes",
+      "SET",
+      "newValue",
+      "oldValue",
+      "isRef",
+      "r",
+      "__v_isRef",
+      "UnwrapRef",
+      "createRef",
+      "ShallowRefMarker",
+      "ShallowRef",
+      "shallowRef",
+      "IfAny",
+      "rawValue",
+      "shallow",
+      "RefImpl",
+      "_value",
+      "_rawValue",
+      "__v_isShallow",
+      "toReactive",
+      "useDirectValue",
+      "isShallow",
+      "isReadonly",
+      "hasChanged",
+      "triggerRef",
+      "MaybeRef",
+      "MaybeRefOrGetter",
+      "unref",
+      "ComputedRef",
+      "toValue",
+      "source",
+      "isFunction",
+      "shallowUnwrapHandlers",
+      "ProxyHandler",
+      "get",
+      "receiver",
+      "Reflect",
+      "set",
+      "proxyRefs",
+      "objectWithRefs",
+      "ShallowUnwrapRef",
+      "isReactive",
+      "Proxy",
+      "CustomRefFactory",
+      "track",
+      "trigger",
+      "CustomRefImpl",
+      "_get",
+      "ReturnType",
+      "_set",
+      "factory",
+      "customRef",
+      "ToRefs",
+      "K",
+      "ToRef",
+      "toRefs",
+      "object",
+      "isProxy",
+      "warn",
+      "ret",
+      "isArray",
+      "Array",
+      "length",
+      "propertyToRef",
+      "ObjectRefImpl",
+      "_object",
+      "_key",
+      "_defaultValue",
+      "val",
+      "getDepFromReactive",
+      "GetterRefImpl",
+      "__v_isReadonly",
+      "_getter",
+      "toRef",
+      "R",
+      "Readonly",
+      "defaultValue",
+      "Exclude",
+      "Record",
+      "isObject",
+      "arguments",
+      "RefUnwrapBailTypes",
+      "DistributeRef",
+      "V",
+      "UnwrapRefSimple",
+      "Builtin",
+      "Map",
+      "Omit",
+      "WeakMap",
+      "Set",
+      "WeakSet",
+      "ReadonlyArray",
+      "ShallowReactiveMarker",
+      "P"
+    ]
+  }
+}

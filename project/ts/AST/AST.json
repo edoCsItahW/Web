@@ -1,0 +1,5941 @@
+[
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "ComputedRef"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./computed'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "activeEffect"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "shouldTrack"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "trackEffect"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "triggerEffects"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./effect'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "DirtyLevels"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "TrackOpTypes"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "TriggerOpTypes"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./constants'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "IfAny"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "hasChanged"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isArray"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isFunction"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isObject"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'@vue/shared'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isProxy"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isReactive"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isReadonly"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "isShallow"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "toRaw"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "toReactive"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./reactive'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "Builtin"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "ShallowReactiveMarker"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./reactive'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "Dep"
+                  }
+                ]
+              },
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "createDep"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./dep'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "ComputedRefImpl"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./computed'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "getDepFromReactive"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./reactiveEffect'"
+      }
+    ]
+  },
+  {
+    "ImportDeclaration": [
+      {
+        "ImportClause": [
+          {
+            "NamedImports": [
+              {
+                "ImportSpecifier": [
+                  {
+                    "Identifier": "warn"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "StringLiteral": "'./warning'"
+      }
+    ]
+  },
+  {
+    "FirstStatement": [
+      {
+        "DeclareKeyword": "declare"
+      },
+      {
+        "VariableDeclarationList": [
+          {
+            "VariableDeclaration": [
+              {
+                "Identifier": "RefSymbol"
+              },
+              {
+                "TypeOperator": [
+                  {
+                    "SymbolKeyword": "symbol"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FirstStatement": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "DeclareKeyword": "declare"
+      },
+      {
+        "VariableDeclarationList": [
+          {
+            "VariableDeclaration": [
+              {
+                "Identifier": "RawSymbol"
+              },
+              {
+                "TypeOperator": [
+                  {
+                    "SymbolKeyword": "symbol"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InterfaceDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "Ref"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "PropertySignature": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PropertySignature": [
+          {
+            "ComputedPropertyName": [
+              {
+                "Identifier": "RefSymbol"
+              }
+            ]
+          },
+          {
+            "LiteralType": [
+              {
+                "TrueKeyword": "true"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "Identifier": "RefBase"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "TypeLiteral": [
+          {
+            "PropertySignature": [
+              {
+                "Identifier": "dep"
+              },
+              {
+                "QuestionToken": "?"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Dep"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "PropertySignature": [
+              {
+                "Identifier": "value"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "trackRefValue"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "ref"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "RefBase"
+              },
+              {
+                "AnyKeyword": "any"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "IfStatement": [
+              {
+                "BinaryExpression": [
+                  {
+                    "Identifier": "shouldTrack"
+                  },
+                  {
+                    "AmpersandAmpersandToken": "&&"
+                  },
+                  {
+                    "Identifier": "activeEffect"
+                  }
+                ]
+              },
+              {
+                "Block": [
+                  {
+                    "ExpressionStatement": [
+                      {
+                        "BinaryExpression": [
+                          {
+                            "Identifier": "ref"
+                          },
+                          {
+                            "FirstAssignment": "="
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "toRaw"
+                              },
+                              {
+                                "Identifier": "ref"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "ExpressionStatement": [
+                      {
+                        "CallExpression": [
+                          {
+                            "Identifier": "trackEffect"
+                          },
+                          {
+                            "Identifier": "activeEffect"
+                          },
+                          {
+                            "ParenthesizedExpression": [
+                              {
+                                "BinaryExpression": [
+                                  {
+                                    "PropertyAccessExpression": [
+                                      {
+                                        "Identifier": "ref"
+                                      },
+                                      {
+                                        "Identifier": "dep"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "QuestionQuestionEqualsToken": "??="
+                                  },
+                                  {
+                                    "CallExpression": [
+                                      {
+                                        "Identifier": "createDep"
+                                      },
+                                      {
+                                        "ArrowFunction": [
+                                          {
+                                            "EqualsGreaterThanToken": "=>"
+                                          },
+                                          {
+                                            "ParenthesizedExpression": [
+                                              {
+                                                "BinaryExpression": [
+                                                  {
+                                                    "PropertyAccessExpression": [
+                                                      {
+                                                        "Identifier": "ref"
+                                                      },
+                                                      {
+                                                        "Identifier": "dep"
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "FirstAssignment": "="
+                                                  },
+                                                  {
+                                                    "Identifier": "undefined"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "ConditionalExpression": [
+                                          {
+                                            "BinaryExpression": [
+                                              {
+                                                "Identifier": "ref"
+                                              },
+                                              {
+                                                "InstanceOfKeyword": "instanceof"
+                                              },
+                                              {
+                                                "Identifier": "ComputedRefImpl"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "QuestionToken": "?"
+                                          },
+                                          {
+                                            "Identifier": "ref"
+                                          },
+                                          {
+                                            "ColonToken": ":"
+                                          },
+                                          {
+                                            "Identifier": "undefined"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "ConditionalExpression": [
+                              {
+                                "Identifier": "__DEV__"
+                              },
+                              {
+                                "QuestionToken": "?"
+                              },
+                              {
+                                "ObjectLiteralExpression": [
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "target"
+                                      },
+                                      {
+                                        "Identifier": "ref"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "type"
+                                      },
+                                      {
+                                        "PropertyAccessExpression": [
+                                          {
+                                            "Identifier": "TrackOpTypes"
+                                          },
+                                          {
+                                            "Identifier": "GET"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "key"
+                                      },
+                                      {
+                                        "StringLiteral": "'value'"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "ColonToken": ":"
+                              },
+                              {
+                                "VoidExpression": [
+                                  {
+                                    "FirstLiteralToken": "0"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "triggerRefValue"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "ref"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "RefBase"
+              },
+              {
+                "AnyKeyword": "any"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "dirtyLevel"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "DirtyLevels"
+              }
+            ]
+          },
+          {
+            "PropertyAccessExpression": [
+              {
+                "Identifier": "DirtyLevels"
+              },
+              {
+                "Identifier": "Dirty"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "newVal"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "oldVal"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ExpressionStatement": [
+              {
+                "BinaryExpression": [
+                  {
+                    "Identifier": "ref"
+                  },
+                  {
+                    "FirstAssignment": "="
+                  },
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "toRaw"
+                      },
+                      {
+                        "Identifier": "ref"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "FirstStatement": [
+              {
+                "VariableDeclarationList": [
+                  {
+                    "VariableDeclaration": [
+                      {
+                        "Identifier": "dep"
+                      },
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "Identifier": "ref"
+                          },
+                          {
+                            "Identifier": "dep"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "IfStatement": [
+              {
+                "Identifier": "dep"
+              },
+              {
+                "Block": [
+                  {
+                    "ExpressionStatement": [
+                      {
+                        "CallExpression": [
+                          {
+                            "Identifier": "triggerEffects"
+                          },
+                          {
+                            "Identifier": "dep"
+                          },
+                          {
+                            "Identifier": "dirtyLevel"
+                          },
+                          {
+                            "ConditionalExpression": [
+                              {
+                                "Identifier": "__DEV__"
+                              },
+                              {
+                                "QuestionToken": "?"
+                              },
+                              {
+                                "ObjectLiteralExpression": [
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "target"
+                                      },
+                                      {
+                                        "Identifier": "ref"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "type"
+                                      },
+                                      {
+                                        "PropertyAccessExpression": [
+                                          {
+                                            "Identifier": "TriggerOpTypes"
+                                          },
+                                          {
+                                            "Identifier": "SET"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "key"
+                                      },
+                                      {
+                                        "StringLiteral": "'value'"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "newValue"
+                                      },
+                                      {
+                                        "Identifier": "newVal"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "PropertyAssignment": [
+                                      {
+                                        "Identifier": "oldValue"
+                                      },
+                                      {
+                                        "Identifier": "oldVal"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "ColonToken": ":"
+                              },
+                              {
+                                "VoidExpression": [
+                                  {
+                                    "FirstLiteralToken": "0"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "isRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "r"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "UnknownKeyword": "unknown"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "FirstTypeNode": [
+          {
+            "Identifier": "r"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "isRef"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "r"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "FirstTypeNode": [
+          {
+            "Identifier": "r"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "PrefixUnaryExpression": [
+                  {
+                    "PrefixUnaryExpression": [
+                      {
+                        "ParenthesizedExpression": [
+                          {
+                            "BinaryExpression": [
+                              {
+                                "Identifier": "r"
+                              },
+                              {
+                                "AmpersandAmpersandToken": "&&"
+                              },
+                              {
+                                "BinaryExpression": [
+                                  {
+                                    "PropertyAccessExpression": [
+                                      {
+                                        "Identifier": "r"
+                                      },
+                                      {
+                                        "Identifier": "__v_isRef"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "EqualsEqualsEqualsToken": "==="
+                                  },
+                                  {
+                                    "TrueKeyword": "true"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ref"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "Ref"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "UnwrapRef"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ref"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "Ref"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "UndefinedKeyword": "undefined"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ref"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "UnknownKeyword": "unknown"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "CallExpression": [
+                  {
+                    "Identifier": "createRef"
+                  },
+                  {
+                    "Identifier": "value"
+                  },
+                  {
+                    "FalseKeyword": "false"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FirstStatement": [
+      {
+        "DeclareKeyword": "declare"
+      },
+      {
+        "VariableDeclarationList": [
+          {
+            "VariableDeclaration": [
+              {
+                "Identifier": "ShallowRefMarker"
+              },
+              {
+                "TypeOperator": [
+                  {
+                    "SymbolKeyword": "symbol"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ShallowRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "IntersectionType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeLiteral": [
+              {
+                "PropertySignature": [
+                  {
+                    "ComputedPropertyName": [
+                      {
+                        "Identifier": "ShallowRefMarker"
+                      }
+                    ]
+                  },
+                  {
+                    "QuestionToken": "?"
+                  },
+                  {
+                    "LiteralType": [
+                      {
+                        "TrueKeyword": "true"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "shallowRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ConditionalType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "ConditionalType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "IfAny"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "ShallowRef"
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "T"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ShallowRef"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "ShallowRef"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "shallowRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "ShallowRef"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "UndefinedKeyword": "undefined"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "shallowRef"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "UnknownKeyword": "unknown"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "CallExpression": [
+                  {
+                    "Identifier": "createRef"
+                  },
+                  {
+                    "Identifier": "value"
+                  },
+                  {
+                    "TrueKeyword": "true"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "Identifier": "createRef"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "rawValue"
+          },
+          {
+            "UnknownKeyword": "unknown"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "shallow"
+          },
+          {
+            "BooleanKeyword": "boolean"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "IfStatement": [
+              {
+                "CallExpression": [
+                  {
+                    "Identifier": "isRef"
+                  },
+                  {
+                    "Identifier": "rawValue"
+                  }
+                ]
+              },
+              {
+                "Block": [
+                  {
+                    "ReturnStatement": [
+                      {
+                        "Identifier": "rawValue"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ReturnStatement": [
+              {
+                "NewExpression": [
+                  {
+                    "Identifier": "RefImpl"
+                  },
+                  {
+                    "Identifier": "rawValue"
+                  },
+                  {
+                    "Identifier": "shallow"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ClassDeclaration": [
+      {
+        "Identifier": "RefImpl"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PrivateKeyword": "private"
+          },
+          {
+            "Identifier": "_value"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PrivateKeyword": "private"
+          },
+          {
+            "Identifier": "_rawValue"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "Identifier": "dep"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Dep"
+              }
+            ]
+          },
+          {
+            "Identifier": "undefined"
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "__v_isRef"
+          },
+          {
+            "TrueKeyword": "true"
+          }
+        ]
+      },
+      {
+        "Constructor": [
+          {
+            "Parameter": [
+              {
+                "Identifier": "value"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Parameter": [
+              {
+                "PublicKeyword": "public"
+              },
+              {
+                "ReadonlyKeyword": "readonly"
+              },
+              {
+                "Identifier": "__v_isShallow"
+              },
+              {
+                "BooleanKeyword": "boolean"
+              }
+            ]
+          },
+          {
+            "Block": [
+              {
+                "ExpressionStatement": [
+                  {
+                    "BinaryExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_rawValue"
+                          }
+                        ]
+                      },
+                      {
+                        "FirstAssignment": "="
+                      },
+                      {
+                        "ConditionalExpression": [
+                          {
+                            "Identifier": "__v_isShallow"
+                          },
+                          {
+                            "QuestionToken": "?"
+                          },
+                          {
+                            "Identifier": "value"
+                          },
+                          {
+                            "ColonToken": ":"
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "toRaw"
+                              },
+                              {
+                                "Identifier": "value"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ExpressionStatement": [
+                  {
+                    "BinaryExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_value"
+                          }
+                        ]
+                      },
+                      {
+                        "FirstAssignment": "="
+                      },
+                      {
+                        "ConditionalExpression": [
+                          {
+                            "Identifier": "__v_isShallow"
+                          },
+                          {
+                            "QuestionToken": "?"
+                          },
+                          {
+                            "Identifier": "value"
+                          },
+                          {
+                            "ColonToken": ":"
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "toReactive"
+                              },
+                              {
+                                "Identifier": "value"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "GetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Block": [
+              {
+                "ExpressionStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "trackRefValue"
+                      },
+                      {
+                        "ThisKeyword": "this"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ReturnStatement": [
+                  {
+                    "PropertyAccessExpression": [
+                      {
+                        "ThisKeyword": "this"
+                      },
+                      {
+                        "Identifier": "_value"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "SetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Parameter": [
+              {
+                "Identifier": "newVal"
+              }
+            ]
+          },
+          {
+            "Block": [
+              {
+                "FirstStatement": [
+                  {
+                    "VariableDeclarationList": [
+                      {
+                        "VariableDeclaration": [
+                          {
+                            "Identifier": "useDirectValue"
+                          },
+                          {
+                            "BinaryExpression": [
+                              {
+                                "BinaryExpression": [
+                                  {
+                                    "PropertyAccessExpression": [
+                                      {
+                                        "ThisKeyword": "this"
+                                      },
+                                      {
+                                        "Identifier": "__v_isShallow"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "BarBarToken": "||"
+                                  },
+                                  {
+                                    "CallExpression": [
+                                      {
+                                        "Identifier": "isShallow"
+                                      },
+                                      {
+                                        "Identifier": "newVal"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "BarBarToken": "||"
+                              },
+                              {
+                                "CallExpression": [
+                                  {
+                                    "Identifier": "isReadonly"
+                                  },
+                                  {
+                                    "Identifier": "newVal"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ExpressionStatement": [
+                  {
+                    "BinaryExpression": [
+                      {
+                        "Identifier": "newVal"
+                      },
+                      {
+                        "FirstAssignment": "="
+                      },
+                      {
+                        "ConditionalExpression": [
+                          {
+                            "Identifier": "useDirectValue"
+                          },
+                          {
+                            "QuestionToken": "?"
+                          },
+                          {
+                            "Identifier": "newVal"
+                          },
+                          {
+                            "ColonToken": ":"
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "toRaw"
+                              },
+                              {
+                                "Identifier": "newVal"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "IfStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "hasChanged"
+                      },
+                      {
+                        "Identifier": "newVal"
+                      },
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_rawValue"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Block": [
+                      {
+                        "FirstStatement": [
+                          {
+                            "VariableDeclarationList": [
+                              {
+                                "VariableDeclaration": [
+                                  {
+                                    "Identifier": "oldVal"
+                                  },
+                                  {
+                                    "PropertyAccessExpression": [
+                                      {
+                                        "ThisKeyword": "this"
+                                      },
+                                      {
+                                        "Identifier": "_rawValue"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "ExpressionStatement": [
+                          {
+                            "BinaryExpression": [
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "ThisKeyword": "this"
+                                  },
+                                  {
+                                    "Identifier": "_rawValue"
+                                  }
+                                ]
+                              },
+                              {
+                                "FirstAssignment": "="
+                              },
+                              {
+                                "Identifier": "newVal"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "ExpressionStatement": [
+                          {
+                            "BinaryExpression": [
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "ThisKeyword": "this"
+                                  },
+                                  {
+                                    "Identifier": "_value"
+                                  }
+                                ]
+                              },
+                              {
+                                "FirstAssignment": "="
+                              },
+                              {
+                                "ConditionalExpression": [
+                                  {
+                                    "Identifier": "useDirectValue"
+                                  },
+                                  {
+                                    "QuestionToken": "?"
+                                  },
+                                  {
+                                    "Identifier": "newVal"
+                                  },
+                                  {
+                                    "ColonToken": ":"
+                                  },
+                                  {
+                                    "CallExpression": [
+                                      {
+                                        "Identifier": "toReactive"
+                                      },
+                                      {
+                                        "Identifier": "newVal"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "ExpressionStatement": [
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "triggerRefValue"
+                              },
+                              {
+                                "ThisKeyword": "this"
+                              },
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "Identifier": "DirtyLevels"
+                                  },
+                                  {
+                                    "Identifier": "Dirty"
+                                  }
+                                ]
+                              },
+                              {
+                                "Identifier": "newVal"
+                              },
+                              {
+                                "Identifier": "oldVal"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "triggerRef"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "ref"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ExpressionStatement": [
+              {
+                "CallExpression": [
+                  {
+                    "Identifier": "triggerRefValue"
+                  },
+                  {
+                    "Identifier": "ref"
+                  },
+                  {
+                    "PropertyAccessExpression": [
+                      {
+                        "Identifier": "DirtyLevels"
+                      },
+                      {
+                        "Identifier": "Dirty"
+                      }
+                    ]
+                  },
+                  {
+                    "ConditionalExpression": [
+                      {
+                        "Identifier": "__DEV__"
+                      },
+                      {
+                        "QuestionToken": "?"
+                      },
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "Identifier": "ref"
+                          },
+                          {
+                            "Identifier": "value"
+                          }
+                        ]
+                      },
+                      {
+                        "ColonToken": ":"
+                      },
+                      {
+                        "VoidExpression": [
+                          {
+                            "FirstLiteralToken": "0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "MaybeRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "UnionType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "MaybeRefOrGetter"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "UnionType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "MaybeRef"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ParenthesizedType": [
+              {
+                "FunctionType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "unref"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "ref"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "MaybeRef"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ComputedRef"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ShallowRef"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "ConditionalExpression": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "isRef"
+                      },
+                      {
+                        "Identifier": "ref"
+                      }
+                    ]
+                  },
+                  {
+                    "QuestionToken": "?"
+                  },
+                  {
+                    "PropertyAccessExpression": [
+                      {
+                        "Identifier": "ref"
+                      },
+                      {
+                        "Identifier": "value"
+                      }
+                    ]
+                  },
+                  {
+                    "ColonToken": ":"
+                  },
+                  {
+                    "Identifier": "ref"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "toValue"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "source"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "MaybeRefOrGetter"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ComputedRef"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ShallowRef"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "ConditionalExpression": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "isFunction"
+                      },
+                      {
+                        "Identifier": "source"
+                      }
+                    ]
+                  },
+                  {
+                    "QuestionToken": "?"
+                  },
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "source"
+                      }
+                    ]
+                  },
+                  {
+                    "ColonToken": ":"
+                  },
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "unref"
+                      },
+                      {
+                        "Identifier": "source"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FirstStatement": [
+      {
+        "VariableDeclarationList": [
+          {
+            "VariableDeclaration": [
+              {
+                "Identifier": "shallowUnwrapHandlers"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ProxyHandler"
+                  },
+                  {
+                    "AnyKeyword": "any"
+                  }
+                ]
+              },
+              {
+                "ObjectLiteralExpression": [
+                  {
+                    "PropertyAssignment": [
+                      {
+                        "Identifier": "get"
+                      },
+                      {
+                        "ArrowFunction": [
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "target"
+                              }
+                            ]
+                          },
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "key"
+                              }
+                            ]
+                          },
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "receiver"
+                              }
+                            ]
+                          },
+                          {
+                            "EqualsGreaterThanToken": "=>"
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "unref"
+                              },
+                              {
+                                "CallExpression": [
+                                  {
+                                    "PropertyAccessExpression": [
+                                      {
+                                        "Identifier": "Reflect"
+                                      },
+                                      {
+                                        "Identifier": "get"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "Identifier": "target"
+                                  },
+                                  {
+                                    "Identifier": "key"
+                                  },
+                                  {
+                                    "Identifier": "receiver"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "PropertyAssignment": [
+                      {
+                        "Identifier": "set"
+                      },
+                      {
+                        "ArrowFunction": [
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "target"
+                              }
+                            ]
+                          },
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "key"
+                              }
+                            ]
+                          },
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "value"
+                              }
+                            ]
+                          },
+                          {
+                            "Parameter": [
+                              {
+                                "Identifier": "receiver"
+                              }
+                            ]
+                          },
+                          {
+                            "EqualsGreaterThanToken": "=>"
+                          },
+                          {
+                            "Block": [
+                              {
+                                "FirstStatement": [
+                                  {
+                                    "VariableDeclarationList": [
+                                      {
+                                        "VariableDeclaration": [
+                                          {
+                                            "Identifier": "oldValue"
+                                          },
+                                          {
+                                            "ElementAccessExpression": [
+                                              {
+                                                "Identifier": "target"
+                                              },
+                                              {
+                                                "Identifier": "key"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "IfStatement": [
+                                  {
+                                    "BinaryExpression": [
+                                      {
+                                        "CallExpression": [
+                                          {
+                                            "Identifier": "isRef"
+                                          },
+                                          {
+                                            "Identifier": "oldValue"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "AmpersandAmpersandToken": "&&"
+                                      },
+                                      {
+                                        "PrefixUnaryExpression": [
+                                          {
+                                            "CallExpression": [
+                                              {
+                                                "Identifier": "isRef"
+                                              },
+                                              {
+                                                "Identifier": "value"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "Block": [
+                                      {
+                                        "ExpressionStatement": [
+                                          {
+                                            "BinaryExpression": [
+                                              {
+                                                "PropertyAccessExpression": [
+                                                  {
+                                                    "Identifier": "oldValue"
+                                                  },
+                                                  {
+                                                    "Identifier": "value"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "FirstAssignment": "="
+                                              },
+                                              {
+                                                "Identifier": "value"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "ReturnStatement": [
+                                          {
+                                            "TrueKeyword": "true"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "Block": [
+                                      {
+                                        "ReturnStatement": [
+                                          {
+                                            "CallExpression": [
+                                              {
+                                                "PropertyAccessExpression": [
+                                                  {
+                                                    "Identifier": "Reflect"
+                                                  },
+                                                  {
+                                                    "Identifier": "set"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "Identifier": "target"
+                                              },
+                                              {
+                                                "Identifier": "key"
+                                              },
+                                              {
+                                                "Identifier": "value"
+                                              },
+                                              {
+                                                "Identifier": "receiver"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "proxyRefs"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "ObjectKeyword": "object"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "objectWithRefs"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "ShallowUnwrapRef"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "ConditionalExpression": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "isReactive"
+                      },
+                      {
+                        "Identifier": "objectWithRefs"
+                      }
+                    ]
+                  },
+                  {
+                    "QuestionToken": "?"
+                  },
+                  {
+                    "Identifier": "objectWithRefs"
+                  },
+                  {
+                    "ColonToken": ":"
+                  },
+                  {
+                    "NewExpression": [
+                      {
+                        "Identifier": "Proxy"
+                      },
+                      {
+                        "Identifier": "objectWithRefs"
+                      },
+                      {
+                        "Identifier": "shallowUnwrapHandlers"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "CustomRefFactory"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "FunctionType": [
+          {
+            "Parameter": [
+              {
+                "Identifier": "track"
+              },
+              {
+                "FunctionType": [
+                  {
+                    "VoidKeyword": "void"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Parameter": [
+              {
+                "Identifier": "trigger"
+              },
+              {
+                "FunctionType": [
+                  {
+                    "VoidKeyword": "void"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeLiteral": [
+              {
+                "PropertySignature": [
+                  {
+                    "Identifier": "get"
+                  },
+                  {
+                    "FunctionType": [
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "T"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "PropertySignature": [
+                  {
+                    "Identifier": "set"
+                  },
+                  {
+                    "FunctionType": [
+                      {
+                        "Parameter": [
+                          {
+                            "Identifier": "value"
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "T"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "VoidKeyword": "void"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ClassDeclaration": [
+      {
+        "Identifier": "CustomRefImpl"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "Identifier": "dep"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Dep"
+              }
+            ]
+          },
+          {
+            "Identifier": "undefined"
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PrivateKeyword": "private"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "_get"
+          },
+          {
+            "IndexedAccessType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ReturnType"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "CustomRefFactory"
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "T"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "LiteralType": [
+                  {
+                    "StringLiteral": "'get'"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PrivateKeyword": "private"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "_set"
+          },
+          {
+            "IndexedAccessType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "ReturnType"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "CustomRefFactory"
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "T"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "LiteralType": [
+                  {
+                    "StringLiteral": "'set'"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "__v_isRef"
+          },
+          {
+            "TrueKeyword": "true"
+          }
+        ]
+      },
+      {
+        "Constructor": [
+          {
+            "Parameter": [
+              {
+                "Identifier": "factory"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "CustomRefFactory"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Block": [
+              {
+                "FirstStatement": [
+                  {
+                    "VariableDeclarationList": [
+                      {
+                        "VariableDeclaration": [
+                          {
+                            "ObjectBindingPattern": [
+                              {
+                                "BindingElement": [
+                                  {
+                                    "Identifier": "get"
+                                  }
+                                ]
+                              },
+                              {
+                                "BindingElement": [
+                                  {
+                                    "Identifier": "set"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "factory"
+                              },
+                              {
+                                "ArrowFunction": [
+                                  {
+                                    "EqualsGreaterThanToken": "=>"
+                                  },
+                                  {
+                                    "CallExpression": [
+                                      {
+                                        "Identifier": "trackRefValue"
+                                      },
+                                      {
+                                        "ThisKeyword": "this"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "ArrowFunction": [
+                                  {
+                                    "EqualsGreaterThanToken": "=>"
+                                  },
+                                  {
+                                    "CallExpression": [
+                                      {
+                                        "Identifier": "triggerRefValue"
+                                      },
+                                      {
+                                        "ThisKeyword": "this"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ExpressionStatement": [
+                  {
+                    "BinaryExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_get"
+                          }
+                        ]
+                      },
+                      {
+                        "FirstAssignment": "="
+                      },
+                      {
+                        "Identifier": "get"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ExpressionStatement": [
+                  {
+                    "BinaryExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_set"
+                          }
+                        ]
+                      },
+                      {
+                        "FirstAssignment": "="
+                      },
+                      {
+                        "Identifier": "set"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "GetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Block": [
+              {
+                "ReturnStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_get"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "SetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Parameter": [
+              {
+                "Identifier": "newVal"
+              }
+            ]
+          },
+          {
+            "Block": [
+              {
+                "ExpressionStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_set"
+                          }
+                        ]
+                      },
+                      {
+                        "Identifier": "newVal"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "customRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "factory"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "CustomRefFactory"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "Ref"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "ReturnStatement": [
+              {
+                "AsExpression": [
+                  {
+                    "NewExpression": [
+                      {
+                        "Identifier": "CustomRefImpl"
+                      },
+                      {
+                        "Identifier": "factory"
+                      }
+                    ]
+                  },
+                  {
+                    "AnyKeyword": "any"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ToRefs"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "AnyKeyword": "any"
+          }
+        ]
+      },
+      {
+        "MappedType": [
+          {
+            "TypeParameter": [
+              {
+                "Identifier": "K"
+              },
+              {
+                "TypeOperator": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "ToRef"
+              },
+              {
+                "IndexedAccessType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "K"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "toRefs"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "ObjectKeyword": "object"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "object"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "ToRefs"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "IfStatement": [
+              {
+                "BinaryExpression": [
+                  {
+                    "Identifier": "__DEV__"
+                  },
+                  {
+                    "AmpersandAmpersandToken": "&&"
+                  },
+                  {
+                    "PrefixUnaryExpression": [
+                      {
+                        "CallExpression": [
+                          {
+                            "Identifier": "isProxy"
+                          },
+                          {
+                            "Identifier": "object"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Block": [
+                  {
+                    "ExpressionStatement": [
+                      {
+                        "CallExpression": [
+                          {
+                            "Identifier": "warn"
+                          },
+                          {
+                            "FirstTemplateToken": "`toRefs() expects a reactive object but received a plain one.`"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "FirstStatement": [
+              {
+                "VariableDeclarationList": [
+                  {
+                    "VariableDeclaration": [
+                      {
+                        "Identifier": "ret"
+                      },
+                      {
+                        "AnyKeyword": "any"
+                      },
+                      {
+                        "ConditionalExpression": [
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "isArray"
+                              },
+                              {
+                                "Identifier": "object"
+                              }
+                            ]
+                          },
+                          {
+                            "QuestionToken": "?"
+                          },
+                          {
+                            "NewExpression": [
+                              {
+                                "Identifier": "Array"
+                              },
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "Identifier": "object"
+                                  },
+                                  {
+                                    "Identifier": "length"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "ColonToken": ":"
+                          },
+                          {
+                            "ObjectLiteralExpression": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ForInStatement": [
+              {
+                "VariableDeclarationList": [
+                  {
+                    "VariableDeclaration": [
+                      {
+                        "Identifier": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Identifier": "object"
+              },
+              {
+                "Block": [
+                  {
+                    "ExpressionStatement": [
+                      {
+                        "BinaryExpression": [
+                          {
+                            "ElementAccessExpression": [
+                              {
+                                "Identifier": "ret"
+                              },
+                              {
+                                "Identifier": "key"
+                              }
+                            ]
+                          },
+                          {
+                            "FirstAssignment": "="
+                          },
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "propertyToRef"
+                              },
+                              {
+                                "Identifier": "object"
+                              },
+                              {
+                                "Identifier": "key"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ReturnStatement": [
+              {
+                "Identifier": "ret"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ClassDeclaration": [
+      {
+        "Identifier": "ObjectRefImpl"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "ObjectKeyword": "object"
+          }
+        ]
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "K"
+          },
+          {
+            "TypeOperator": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "__v_isRef"
+          },
+          {
+            "TrueKeyword": "true"
+          }
+        ]
+      },
+      {
+        "Constructor": [
+          {
+            "Parameter": [
+              {
+                "PrivateKeyword": "private"
+              },
+              {
+                "ReadonlyKeyword": "readonly"
+              },
+              {
+                "Identifier": "_object"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Parameter": [
+              {
+                "PrivateKeyword": "private"
+              },
+              {
+                "ReadonlyKeyword": "readonly"
+              },
+              {
+                "Identifier": "_key"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "K"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Parameter": [
+              {
+                "PrivateKeyword": "private"
+              },
+              {
+                "ReadonlyKeyword": "readonly"
+              },
+              {
+                "Identifier": "_defaultValue"
+              },
+              {
+                "QuestionToken": "?"
+              },
+              {
+                "IndexedAccessType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "K"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Block": []
+          }
+        ]
+      },
+      {
+        "GetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Block": [
+              {
+                "FirstStatement": [
+                  {
+                    "VariableDeclarationList": [
+                      {
+                        "VariableDeclaration": [
+                          {
+                            "Identifier": "val"
+                          },
+                          {
+                            "ElementAccessExpression": [
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "ThisKeyword": "this"
+                                  },
+                                  {
+                                    "Identifier": "_object"
+                                  }
+                                ]
+                              },
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "ThisKeyword": "this"
+                                  },
+                                  {
+                                    "Identifier": "_key"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ReturnStatement": [
+                  {
+                    "ConditionalExpression": [
+                      {
+                        "BinaryExpression": [
+                          {
+                            "Identifier": "val"
+                          },
+                          {
+                            "EqualsEqualsEqualsToken": "==="
+                          },
+                          {
+                            "Identifier": "undefined"
+                          }
+                        ]
+                      },
+                      {
+                        "QuestionToken": "?"
+                      },
+                      {
+                        "NonNullExpression": [
+                          {
+                            "PropertyAccessExpression": [
+                              {
+                                "ThisKeyword": "this"
+                              },
+                              {
+                                "Identifier": "_defaultValue"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "ColonToken": ":"
+                      },
+                      {
+                        "Identifier": "val"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "SetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Parameter": [
+              {
+                "Identifier": "newVal"
+              }
+            ]
+          },
+          {
+            "Block": [
+              {
+                "ExpressionStatement": [
+                  {
+                    "BinaryExpression": [
+                      {
+                        "ElementAccessExpression": [
+                          {
+                            "PropertyAccessExpression": [
+                              {
+                                "ThisKeyword": "this"
+                              },
+                              {
+                                "Identifier": "_object"
+                              }
+                            ]
+                          },
+                          {
+                            "PropertyAccessExpression": [
+                              {
+                                "ThisKeyword": "this"
+                              },
+                              {
+                                "Identifier": "_key"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "FirstAssignment": "="
+                      },
+                      {
+                        "Identifier": "newVal"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "GetAccessor": [
+          {
+            "Identifier": "dep"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Dep"
+                  }
+                ]
+              },
+              {
+                "UndefinedKeyword": "undefined"
+              }
+            ]
+          },
+          {
+            "Block": [
+              {
+                "ReturnStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "getDepFromReactive"
+                      },
+                      {
+                        "CallExpression": [
+                          {
+                            "Identifier": "toRaw"
+                          },
+                          {
+                            "PropertyAccessExpression": [
+                              {
+                                "ThisKeyword": "this"
+                              },
+                              {
+                                "Identifier": "_object"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ClassDeclaration": [
+      {
+        "Identifier": "GetterRefImpl"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "__v_isRef"
+          },
+          {
+            "TrueKeyword": "true"
+          }
+        ]
+      },
+      {
+        "PropertyDeclaration": [
+          {
+            "PublicKeyword": "public"
+          },
+          {
+            "ReadonlyKeyword": "readonly"
+          },
+          {
+            "Identifier": "__v_isReadonly"
+          },
+          {
+            "TrueKeyword": "true"
+          }
+        ]
+      },
+      {
+        "Constructor": [
+          {
+            "Parameter": [
+              {
+                "PrivateKeyword": "private"
+              },
+              {
+                "ReadonlyKeyword": "readonly"
+              },
+              {
+                "Identifier": "_getter"
+              },
+              {
+                "FunctionType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Block": []
+          }
+        ]
+      },
+      {
+        "GetAccessor": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "Block": [
+              {
+                "ReturnStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "PropertyAccessExpression": [
+                          {
+                            "ThisKeyword": "this"
+                          },
+                          {
+                            "Identifier": "_getter"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ToRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "IfAny"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ConditionalType": [
+              {
+                "TupleType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TupleType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "Ref"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "toRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "value"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ConditionalType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "FunctionType": [
+              {
+                "InferType": [
+                  {
+                    "TypeParameter": [
+                      {
+                        "Identifier": "R"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Readonly"
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "R"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ConditionalType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "UnwrapRef"
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "T"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "toRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "ObjectKeyword": "object"
+          }
+        ]
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "K"
+          },
+          {
+            "TypeOperator": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "object"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "key"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "K"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "ToRef"
+          },
+          {
+            "IndexedAccessType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "K"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "toRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          },
+          {
+            "ObjectKeyword": "object"
+          }
+        ]
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "K"
+          },
+          {
+            "TypeOperator": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "object"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "key"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "K"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "defaultValue"
+          },
+          {
+            "IndexedAccessType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "K"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "ToRef"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Exclude"
+              },
+              {
+                "IndexedAccessType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "K"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "UndefinedKeyword": "undefined"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "toRef"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "source"
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Record"
+                  },
+                  {
+                    "StringKeyword": "string"
+                  },
+                  {
+                    "AnyKeyword": "any"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "MaybeRef"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "key"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "StringKeyword": "string"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "defaultValue"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "UnknownKeyword": "unknown"
+          }
+        ]
+      },
+      {
+        "TypeReference": [
+          {
+            "Identifier": "Ref"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "IfStatement": [
+              {
+                "CallExpression": [
+                  {
+                    "Identifier": "isRef"
+                  },
+                  {
+                    "Identifier": "source"
+                  }
+                ]
+              },
+              {
+                "Block": [
+                  {
+                    "ReturnStatement": [
+                      {
+                        "Identifier": "source"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "IfStatement": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "isFunction"
+                      },
+                      {
+                        "Identifier": "source"
+                      }
+                    ]
+                  },
+                  {
+                    "Block": [
+                      {
+                        "ReturnStatement": [
+                          {
+                            "AsExpression": [
+                              {
+                                "NewExpression": [
+                                  {
+                                    "Identifier": "GetterRefImpl"
+                                  },
+                                  {
+                                    "Identifier": "source"
+                                  }
+                                ]
+                              },
+                              {
+                                "AnyKeyword": "any"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "IfStatement": [
+                      {
+                        "BinaryExpression": [
+                          {
+                            "CallExpression": [
+                              {
+                                "Identifier": "isObject"
+                              },
+                              {
+                                "Identifier": "source"
+                              }
+                            ]
+                          },
+                          {
+                            "AmpersandAmpersandToken": "&&"
+                          },
+                          {
+                            "BinaryExpression": [
+                              {
+                                "PropertyAccessExpression": [
+                                  {
+                                    "Identifier": "arguments"
+                                  },
+                                  {
+                                    "Identifier": "length"
+                                  }
+                                ]
+                              },
+                              {
+                                "GreaterThanToken": ">"
+                              },
+                              {
+                                "FirstLiteralToken": "1"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "Block": [
+                          {
+                            "ReturnStatement": [
+                              {
+                                "CallExpression": [
+                                  {
+                                    "Identifier": "propertyToRef"
+                                  },
+                                  {
+                                    "Identifier": "source"
+                                  },
+                                  {
+                                    "NonNullExpression": [
+                                      {
+                                        "Identifier": "key"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "Identifier": "defaultValue"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "Block": [
+                          {
+                            "ReturnStatement": [
+                              {
+                                "CallExpression": [
+                                  {
+                                    "Identifier": "ref"
+                                  },
+                                  {
+                                    "Identifier": "source"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "FunctionDeclaration": [
+      {
+        "Identifier": "propertyToRef"
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "source"
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Record"
+              },
+              {
+                "StringKeyword": "string"
+              },
+              {
+                "AnyKeyword": "any"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "key"
+          },
+          {
+            "StringKeyword": "string"
+          }
+        ]
+      },
+      {
+        "Parameter": [
+          {
+            "Identifier": "defaultValue"
+          },
+          {
+            "QuestionToken": "?"
+          },
+          {
+            "UnknownKeyword": "unknown"
+          }
+        ]
+      },
+      {
+        "Block": [
+          {
+            "FirstStatement": [
+              {
+                "VariableDeclarationList": [
+                  {
+                    "VariableDeclaration": [
+                      {
+                        "Identifier": "val"
+                      },
+                      {
+                        "ElementAccessExpression": [
+                          {
+                            "Identifier": "source"
+                          },
+                          {
+                            "Identifier": "key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "ReturnStatement": [
+              {
+                "ConditionalExpression": [
+                  {
+                    "CallExpression": [
+                      {
+                        "Identifier": "isRef"
+                      },
+                      {
+                        "Identifier": "val"
+                      }
+                    ]
+                  },
+                  {
+                    "QuestionToken": "?"
+                  },
+                  {
+                    "Identifier": "val"
+                  },
+                  {
+                    "ColonToken": ":"
+                  },
+                  {
+                    "ParenthesizedExpression": [
+                      {
+                        "AsExpression": [
+                          {
+                            "NewExpression": [
+                              {
+                                "Identifier": "ObjectRefImpl"
+                              },
+                              {
+                                "Identifier": "source"
+                              },
+                              {
+                                "Identifier": "key"
+                              },
+                              {
+                                "Identifier": "defaultValue"
+                              }
+                            ]
+                          },
+                          {
+                            "AnyKeyword": "any"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InterfaceDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "RefUnwrapBailTypes"
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "ShallowUnwrapRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "MappedType": [
+          {
+            "TypeParameter": [
+              {
+                "Identifier": "K"
+              },
+              {
+                "TypeOperator": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "DistributeRef"
+              },
+              {
+                "IndexedAccessType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "K"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "Identifier": "DistributeRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "ConditionalType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "Ref"
+              },
+              {
+                "InferType": [
+                  {
+                    "TypeParameter": [
+                      {
+                        "Identifier": "V"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "V"
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "UnwrapRef"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "ConditionalType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "ShallowRef"
+              },
+              {
+                "InferType": [
+                  {
+                    "TypeParameter": [
+                      {
+                        "Identifier": "V"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "V"
+              }
+            ]
+          },
+          {
+            "ConditionalType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  },
+                  {
+                    "InferType": [
+                      {
+                        "TypeParameter": [
+                          {
+                            "Identifier": "V"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "UnwrapRefSimple"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "V"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "UnwrapRefSimple"
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TypeAliasDeclaration": [
+      {
+        "ExportKeyword": "export"
+      },
+      {
+        "Identifier": "UnwrapRefSimple"
+      },
+      {
+        "TypeParameter": [
+          {
+            "Identifier": "T"
+          }
+        ]
+      },
+      {
+        "ConditionalType": [
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "UnionType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Builtin"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Ref"
+                  }
+                ]
+              },
+              {
+                "IndexedAccessType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "RefUnwrapBailTypes"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeOperator": [
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "RefUnwrapBailTypes"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "TypeLiteral": [
+                  {
+                    "PropertySignature": [
+                      {
+                        "ComputedPropertyName": [
+                          {
+                            "Identifier": "RawSymbol"
+                          }
+                        ]
+                      },
+                      {
+                        "QuestionToken": "?"
+                      },
+                      {
+                        "LiteralType": [
+                          {
+                            "TrueKeyword": "true"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "TypeReference": [
+              {
+                "Identifier": "T"
+              }
+            ]
+          },
+          {
+            "ConditionalType": [
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "T"
+                  }
+                ]
+              },
+              {
+                "TypeReference": [
+                  {
+                    "Identifier": "Map"
+                  },
+                  {
+                    "InferType": [
+                      {
+                        "TypeParameter": [
+                          {
+                            "Identifier": "K"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "InferType": [
+                      {
+                        "TypeParameter": [
+                          {
+                            "Identifier": "V"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "IntersectionType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "Map"
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "K"
+                          }
+                        ]
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "UnwrapRefSimple"
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "V"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "UnwrapRef"
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "Omit"
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "T"
+                              }
+                            ]
+                          },
+                          {
+                            "TypeOperator": [
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "Map"
+                                  },
+                                  {
+                                    "AnyKeyword": "any"
+                                  },
+                                  {
+                                    "AnyKeyword": "any"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "ConditionalType": [
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "T"
+                      }
+                    ]
+                  },
+                  {
+                    "TypeReference": [
+                      {
+                        "Identifier": "WeakMap"
+                      },
+                      {
+                        "InferType": [
+                          {
+                            "TypeParameter": [
+                              {
+                                "Identifier": "K"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "InferType": [
+                          {
+                            "TypeParameter": [
+                              {
+                                "Identifier": "V"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "IntersectionType": [
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "WeakMap"
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "K"
+                              }
+                            ]
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "UnwrapRefSimple"
+                              },
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "V"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "UnwrapRef"
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "Omit"
+                              },
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "T"
+                                  }
+                                ]
+                              },
+                              {
+                                "TypeOperator": [
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "WeakMap"
+                                      },
+                                      {
+                                        "AnyKeyword": "any"
+                                      },
+                                      {
+                                        "AnyKeyword": "any"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "ConditionalType": [
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "T"
+                          }
+                        ]
+                      },
+                      {
+                        "TypeReference": [
+                          {
+                            "Identifier": "Set"
+                          },
+                          {
+                            "InferType": [
+                              {
+                                "TypeParameter": [
+                                  {
+                                    "Identifier": "V"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "IntersectionType": [
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "Set"
+                              },
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "UnwrapRefSimple"
+                                  },
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "V"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "UnwrapRef"
+                              },
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "Omit"
+                                  },
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "T"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "TypeOperator": [
+                                      {
+                                        "TypeReference": [
+                                          {
+                                            "Identifier": "Set"
+                                          },
+                                          {
+                                            "AnyKeyword": "any"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "ConditionalType": [
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "T"
+                              }
+                            ]
+                          },
+                          {
+                            "TypeReference": [
+                              {
+                                "Identifier": "WeakSet"
+                              },
+                              {
+                                "InferType": [
+                                  {
+                                    "TypeParameter": [
+                                      {
+                                        "Identifier": "V"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "IntersectionType": [
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "WeakSet"
+                                  },
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "UnwrapRefSimple"
+                                      },
+                                      {
+                                        "TypeReference": [
+                                          {
+                                            "Identifier": "V"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "UnwrapRef"
+                                  },
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "Omit"
+                                      },
+                                      {
+                                        "TypeReference": [
+                                          {
+                                            "Identifier": "T"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "TypeOperator": [
+                                          {
+                                            "TypeReference": [
+                                              {
+                                                "Identifier": "WeakSet"
+                                              },
+                                              {
+                                                "AnyKeyword": "any"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "ConditionalType": [
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "T"
+                                  }
+                                ]
+                              },
+                              {
+                                "TypeReference": [
+                                  {
+                                    "Identifier": "ReadonlyArray"
+                                  },
+                                  {
+                                    "AnyKeyword": "any"
+                                  }
+                                ]
+                              },
+                              {
+                                "MappedType": [
+                                  {
+                                    "TypeParameter": [
+                                      {
+                                        "Identifier": "K"
+                                      },
+                                      {
+                                        "TypeOperator": [
+                                          {
+                                            "TypeReference": [
+                                              {
+                                                "Identifier": "T"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "UnwrapRefSimple"
+                                      },
+                                      {
+                                        "IndexedAccessType": [
+                                          {
+                                            "TypeReference": [
+                                              {
+                                                "Identifier": "T"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "TypeReference": [
+                                              {
+                                                "Identifier": "K"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "ConditionalType": [
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "T"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "IntersectionType": [
+                                      {
+                                        "ObjectKeyword": "object"
+                                      },
+                                      {
+                                        "TypeLiteral": [
+                                          {
+                                            "PropertySignature": [
+                                              {
+                                                "ComputedPropertyName": [
+                                                  {
+                                                    "Identifier": "ShallowReactiveMarker"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "QuestionToken": "?"
+                                              },
+                                              {
+                                                "NeverKeyword": "never"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "MappedType": [
+                                      {
+                                        "TypeParameter": [
+                                          {
+                                            "Identifier": "P"
+                                          },
+                                          {
+                                            "TypeOperator": [
+                                              {
+                                                "TypeReference": [
+                                                  {
+                                                    "Identifier": "T"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "ConditionalType": [
+                                          {
+                                            "TypeReference": [
+                                              {
+                                                "Identifier": "P"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "SymbolKeyword": "symbol"
+                                          },
+                                          {
+                                            "IndexedAccessType": [
+                                              {
+                                                "TypeReference": [
+                                                  {
+                                                    "Identifier": "T"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "TypeReference": [
+                                                  {
+                                                    "Identifier": "P"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "TypeReference": [
+                                              {
+                                                "Identifier": "UnwrapRef"
+                                              },
+                                              {
+                                                "IndexedAccessType": [
+                                                  {
+                                                    "TypeReference": [
+                                                      {
+                                                        "Identifier": "T"
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "TypeReference": [
+                                                      {
+                                                        "Identifier": "P"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "TypeReference": [
+                                      {
+                                        "Identifier": "T"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "EndOfFileToken": ""
+  }
+]
