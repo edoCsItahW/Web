@@ -11,12 +11,7 @@ file(GLOB SOURCE_FILES "*.cpp")
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
-target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB})
-
-set(pybind11_DIR "E:/ProgramFiles/Anaconda/Lib/site-packages/pybind11/share/cmake/pybind11")
-
-find_package(Python 3.11 COMPONENTS Interpreter Development REQUIRED)
-find_package(pybind11 CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} ${CMAKE_SOURCE_DIR}/python311.lib ${CMAKE_SOURCE_DIR}/node.lib)
 
 include(pybind11.cmake)
 include(node.cmake)

@@ -17,6 +17,8 @@ mineflayer/
 pythonMemorandum/
 */pythonMemorandum/
 
+/project/minecraft/support/
+
 # 排除IDE相关文件
 .idea/
 */.idea/

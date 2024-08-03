@@ -10,7 +10,7 @@ const mineflayer = require('mineflayer')
 const { mineflayer: mineflayerViewer } = require('prismarine-viewer')
 const { pathfinder, Movements, goals: { GoalNear } } = require('mineflayer-pathfinder')
 const pvp = require('mineflayer-pvp').plugin
-// const { worker, isMainThread, parentPort } = require('worker_threads')
+const { worker, isMainThread, parentPort } = require('worker_threads')
 
 function cached(target, key, descriptor) {
     if (typeof descriptor.value !== 'function') {
