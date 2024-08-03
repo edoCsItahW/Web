@@ -13,6 +13,7 @@
     "private": true,
     "devDependencies": {
         "@types/node": "^22.1.0",
+        "jsorigin": "link:E:/codeSpace/codeSet/web/jsOrigin",
         "minecraft-data": "^3.67.0",
         "mineflayer": "^4.20.1",
         "mineflayer-pvp": "^1.3.2",

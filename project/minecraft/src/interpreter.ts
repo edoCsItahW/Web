@@ -6,37 +6,51 @@
  * purposes is prohibited without the author's permission. If you have any questions or require
  * permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
-export abstract class Command {
-    abstract execute(...args: string[]): void;
-}
+import { Bot } from "mineflayer";
+import { Command, BuiltInCommand, ListCommand, StopCommand } from "./commond";
 
-export type FuncType<T> = (...args: T[]) => void
 
-export class Interpreter<FuncTypeCmd = FuncType<any>> {
-    private commands: Map<string, (FuncTypeCmd | Command)> = new Map();
+export type FuncType = ((...args: string[]) => void) | Command
 
-    constructor(...command: (FuncTypeCmd | Command)[]) {
+
+export class Interpreter {
+    private commands: Map<string, FuncType> = new Map();
+    private builtInCmd: Map<string, Command> = new Map();
+
+    constructor(private bot: Bot, ...command: FuncType[]) {
+        this.register(new ListCommand(this.bot, this.commands));
+        this.register(new StopCommand())
+
         for (const cmd of command)
-            this.commands.set((cmd as Function).name, cmd);
-    }
-
-    visit(cmd: Command | FuncTypeCmd, fn: (cmd: Command | FuncTypeCmd, flag: boolean) => void) {
-        fn(cmd, cmd instanceof Command);
+            this.commands.set(cmd.name, cmd);
     }
 
     static stringToArgs(msg: string) {
         return msg.split(' ').filter(s => s.length);
     }
 
-    execute(...args: string[]) {
-        if (args.length) {
-            const cmd = this.commands.get(args[0]);
+    register(cmd: FuncType) {
+        if (cmd instanceof BuiltInCommand)
+            this.builtInCmd.set(cmd.name, cmd);
+        else
+            this.commands.set(cmd.name, cmd);
+    }
 
-            if (cmd)
-                this.visit(cmd, (cmd, isCommand) => {
-                    if (isCommand) (cmd as Command).execute(...args.slice(1));
-                    else (cmd as Function)(...args.slice(1));
-                });
+    execute(command: string) {
+        const args = Interpreter.stringToArgs(command);
+
+        if (args.length) {
+            const cmd = this.commands.get(args[0]) || (args.length > 1
+                ? args[0] === 'cmd' && this.builtInCmd.get(args[1])
+                : undefined);
+
+            if (cmd) {
+                if (((_cmd): _cmd is Command => _cmd instanceof Command)(cmd))
+                    cmd.execute(...(cmd instanceof BuiltInCommand ? args.slice(2) : args.slice(1)));
+                else
+                    cmd(...args.slice(1));
+            }
+
             else
                 console.log(`Command not found: ${args[0]}`)
         }

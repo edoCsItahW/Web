@@ -15,6 +15,9 @@ importers:
       '@types/node':
         specifier: ^22.1.0
         version: 22.1.0
+      jsorigin:
+        specifier: link:E:/codeSpace/codeSet/web/jsOrigin
+        version: link:../../jsOrigin
       minecraft-data:
         specifier: ^3.67.0
         version: 3.67.0

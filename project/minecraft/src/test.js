@@ -15,7 +15,7 @@ class TaskRunner {
     // 开始执行任务
     startTask(arg) {
         if (this.isRunning.length) {
-            console.log('Task is already running.');
+            console.log('Task stop.');
             return;
         }
 
@@ -52,14 +52,12 @@ class TaskRunner {
 const taskRunner = new TaskRunner();
 taskRunner.startTask('begin'); // 开始执行任务
 
-new Promise(resolve => {
-    setTimeout(resolve, 5000); // 等待5秒
-})
+new Promise(resolve => { setTimeout(resolve, 5000); })
     .then(() => {
         console.log(taskRunner.isRunning.pop());
         return new Promise(resolve => setTimeout(resolve, 5000))
     })
     .then(() => {
-    console.log("等待结束");
-    taskRunner.stopTask(); // 在等待结束后停止任务
-});
+        console.log("等待结束");
+        taskRunner.stopTask(); // 在等待结束后停止任务
+    });
