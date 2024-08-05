@@ -7,67 +7,17 @@
  * permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
 import { Bot } from "mineflayer";
+import {Entity} from "prismarine-entity";
+import {goals, Movements} from "mineflayer-pathfinder";
+import { BEHAVIORS } from "./support";
 
-
-export namespace ErrHandle {
-    interface IError {func: string, file: string, line: string}
-
-    export function regexStack(stack: string): {msg: string, stack: Array<IError>} {
-        /* 解析错误栈
-         *
-         * @param {string} stack - 错误栈字符串
-         * @returns {object} - 包含错误信息和错误栈的对象
-         * */
-
-        const stackRegex: RegExp = /at\s+(?:([^\s(]+)\s+)?\((file:.*?):(\d+):\d+\)|at\s+(file:.*?):(\d+):\d+|at\s+(?:([^\s(]+)\s+)?\((node:.*?):(\d+):\d+\)|at\s+(?:([^\s(]+)\s+)?\(([CDEFG]:.*?):(\d+):\d+\)/g;
-
-        const matches: Array<IError> = [];
-        let match: RegExpExecArray | null;
-
-        while ((match = stackRegex.exec(stack)) !== null) {
-            matches.push({
-                func: match[1] || match[6] || match[9] || 'main',
-                file: match[2] || match[4] || match[7] || match[10] || 'unknown',
-                line: match[3] || match[5] || match[8] || match[11] || '-1',
-            });
-        }
-
-        return {msg: stack.match(/^(.*?)(?=\n)/)?.[1] || "", stack: matches}
-    }
-
-    export function pyStyleError(stack: string): void {
-        /* 输出Python风格的错误栈
-         *
-         * @param {string} stack - 错误栈字符串
-         * */
-        const infoObj = regexStack(stack);
-
-        console.error("Traceback (most recent call last):");
-        infoObj.stack.forEach(item => console.error(`    File "${item.file}", line ${item.line}, in <${item.func}>`))
-        console.error(infoObj.msg)
-    }
-
-    export function tryExec(func: Function, error?: (msg: string, code: number) => void ): Function {
-        /* 一个装饰器，尝试执行函数并捕获错误
-         *
-         * @param {Function} func - 要执行的函数
-         * @param {Function} error - 错误处理函数(可选)
-         * @returns {Function} - 包装后的函数
-         * */
-        return function(): any {
-            try {
-                return func(...arguments);
-            }
-            catch (e: any) {
-                if (error)
-                    error(e.message, 400)
-                else {
-                    pyStyleError(e.stack);
-                }
-            }
-        }
-    }
+class Ref<T> {
+    constructor(private _value: T) {}
+    get value() { return this._value; }
+    set value(v: T) { this._value = v; }
 }
+
+export const SPEAKER = new Ref<string>("");
 
 export enum WarnLevel {
     NONE,
@@ -103,19 +53,131 @@ console.warn = (level: WarnLevel = WarnLevel.INFO, ...args: any[]): void =>  {
 
 console.error = (...args: any[]) =>  { console.warn(WarnLevel.ERROR, ...args); }
 
-export function debug(level: WarnLevel = WarnLevel.INFO, bot: Bot | null = null, ...args: any[]): Function {
-    function func(fn: Function) {
-        return function warp(..._args: any[]) {
-            console.warn(level, ...args);
-            if (bot)
-                bot.chat("[DEBUG]: " + args.join(" "));
-            // @ts-expect-error
-            return fn.apply(this, _args);
+
+export namespace Scaffold {
+    export namespace ErrHandle {
+        interface IError {func: string, file: string, line: string}
+
+        export function regexStack(stack: string): {msg: string, stack: Array<IError>} {
+            /* 解析错误栈
+             *
+             * @param {string} stack - 错误栈字符串
+             * @returns {object} - 包含错误信息和错误栈的对象
+             * */
+
+            const stackRegex: RegExp = /at\s+(?:([^\s(]+)\s+)?\((file:.*?):(\d+):\d+\)|at\s+(file:.*?):(\d+):\d+|at\s+(?:([^\s(]+)\s+)?\((node:.*?):(\d+):\d+\)|at\s+(?:([^\s(]+)\s+)?\(([CDEFG]:.*?):(\d+):\d+\)/g;
+
+            const matches: Array<IError> = [];
+            let match: RegExpExecArray | null;
+
+            while ((match = stackRegex.exec(stack)) !== null) {
+                matches.push({
+                    func: match[1] || match[6] || match[9] || 'main',
+                    file: match[2] || match[4] || match[7] || match[10] || 'unknown',
+                    line: match[3] || match[5] || match[8] || match[11] || '-1',
+                });
+            }
+
+            return {msg: stack.match(/^(.*?)(?=\n)/)?.[1] || "", stack: matches}
+        }
+
+        export function pyStyleError(stack: string): void {
+            /* 输出Python风格的错误栈
+             *
+             * @param {string} stack - 错误栈字符串
+             * */
+            const infoObj = regexStack(stack);
+
+            console.error("Traceback (most recent call last):");
+            infoObj.stack.forEach(item => console.error(`    File "${item.file}", line ${item.line}, in <${item.func}>`))
+            console.error(infoObj.msg)
+        }
+
+        export function debug(level: WarnLevel = WarnLevel.INFO, bot: Bot | null = null, ...args: any[]): Function {
+            function func(fn: Function) {
+                return function warp(..._args: any[]) {
+                    console.warn(level, ...args);
+                    if (bot)
+                        bot.chat("[DEBUG]: " + args.join(" "));
+                    // @ts-expect-error
+                    return fn.apply(this, _args);
+                }
+            }
+            return func;
         }
     }
-    return func;
+
+    export async function sleep(ms: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
 }
 
-export async function sleep(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+
+export namespace FuncKit {
+    export function str2Target(bot: Bot, name: string, type?: string) {
+        console.warn(WarnLevel.DEBUG, "FuncKit.str2Target")
+        switch (name) {
+            case '@s':
+                return bot.entity;
+            case '@p':
+                return type ? bot.nearestEntity() : bot.nearestEntity(ent => ent.type === type);
+            case '@h':
+                return bot.nearestEntity(entity => entity.name === SPEAKER.value);
+            default:
+                return bot.nearestEntity(entity => entity.name === name);
+        }
+    }
+}
+
+
+export namespace Beahvior {
+    export function look(bot: Bot, target: Entity) {
+        const bhv = setInterval(() => {
+            if (!target) return;
+            bot.lookAt(target.position.offset(0, target.height, 0));
+        }, 50);
+        BEHAVIORS.set("look", bhv);
+    }
+
+    export function move(bot: Bot, target: Entity, movement?: Movements) {
+        if (!target) {
+            target = bot.nearestEntity() as Entity;
+            Scaffold.ErrHandle.debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!")
+        }
+
+        const {x, y, z} = target.position;
+
+        if (!movement)
+            movement = new Movements(bot);
+
+        bot.pathfinder.setMovements(movement);
+        bot.pathfinder.setGoal(new goals.GoalNear(x, y, z, 1))
+    }
+
+    export function attack(bot: Bot, target: Entity) {
+        target = target || bot.nearestEntity();
+
+        if (target)
+            bot.pvp.attack(target);
+        else
+            Scaffold.ErrHandle.debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!");
+    }
+
+    export function hunt(bot: Bot, target: Entity | string, movement?: Movements) {
+        // @ts-ignore
+        target ||= bot.nearestEntity();
+
+        if (typeof target === "string")
+            // @ts-ignore
+            target = funcKit.findTargetWithName(bot, target);
+
+        if (typeof target === "object") {
+            look(bot, target);
+            move(bot, target, movement);
+            attack(bot, target);
+        }
+        else
+            Scaffold.ErrHandle.debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!");
+    }
 }

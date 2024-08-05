@@ -9,7 +9,8 @@
 import { Bot } from "mineflayer";
 import { FuncType } from "./interpreter";
 import { BEHAVIORS } from "./support"
-import { WarnLevel } from "./func";
+import {Beahvior, FuncKit, WarnLevel} from "./func";
+import {Movements} from "mineflayer-pathfinder";
 
 
 export abstract class Command {
@@ -46,5 +47,49 @@ export class StopCommand extends BuiltInCommand {
         }
         else
             BEHAVIORS.clear();
+    }
+}
+
+export class MoveCommand extends Command {
+    name: string = 'move'
+    private doc: string = 'move [target] <type>'
+
+    constructor(private bot: Bot, private movement: () => Movements) {
+        super();
+    }
+
+    execute(...args: string[]): void {
+        if (args.length)
+            switch (args[0]) {
+                case '-h':
+                    this.bot.chat(this.doc); break;
+                default:
+                    Beahvior.move(this.bot, FuncKit.str2Target(this.bot, args[0], args[1]?.toLowerCase())!, this.movement()); break;
+            }
+        else
+            this.bot.chat("使用-h查看帮助.")
+    }
+
+}
+
+export class LookCommand extends Command {
+    name = 'look';
+    private doc = 'look [target] <type>'
+
+    constructor(private bot: Bot) {
+        super();
+    }
+
+    execute(...args: string[]): void {
+        if (args.length)
+            switch (args[0]) {
+                case '-h':
+                    this.bot.chat(this.doc); break;
+                default:
+                    Beahvior.look(this.bot, FuncKit.str2Target(this.bot, args[0], args[1]?.toLowerCase())!);
+                    break;
+            }
+        else
+            this.bot.chat("使用-h查看帮助.")
     }
 }

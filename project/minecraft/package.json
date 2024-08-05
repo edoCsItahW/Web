@@ -2,9 +2,10 @@
     "name": "minecraft",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/main.ts",
+    "type": "commonjs",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "mineecraft": "ts-node-dev src/main.ts"
     },
     "repository": {
         "type": "git",
@@ -16,10 +17,12 @@
         "jsorigin": "link:E:/codeSpace/codeSet/web/jsOrigin",
         "minecraft-data": "^3.67.0",
         "mineflayer": "^4.20.1",
+        "mineflayer-auto-eat": "^4.0.0",
         "mineflayer-pvp": "^1.3.2",
         "prismarine-chat": "^1.10.1",
         "prismarine-entity": "^2.4.0",
-        "prismarine-viewer": "^1.28.0"
+        "prismarine-viewer": "^1.28.0",
+        "typescript": "5.6.0-dev.20240803"
     },
     "dependencies": {
         "mineflayer-pathfinder": "^2.4.5"

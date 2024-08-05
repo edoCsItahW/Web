@@ -9,37 +9,22 @@
 import { Bot, createBot  } from "mineflayer";
 import { mineflayer as viewer } from "prismarine-viewer";
 import { ChatMessage } from "prismarine-chat";
-import { pathfinder, Movements, goals } from "mineflayer-pathfinder"
+import { pathfinder, Movements } from "mineflayer-pathfinder"
 import { plugin as pvp } from "mineflayer-pvp"
-import { Entity } from "prismarine-entity"
-import { Interpreter, FuncType } from "./interpreter";
+import { Interpreter } from "./interpreter";
 import { Worker, isMainThread, parentPort } from "node:worker_threads";
-import { ErrHandle, debug, WarnLevel, sleep } from "./func";
+import { WarnLevel, Scaffold, SPEAKER } from "./func";
 
 
-let SPEAKER: string;
 export const BEHAVIORS: Map<string, NodeJS.Timeout> = new Map();
 
 
-export namespace funcKit {
-    export function findTargetWithName(bot: Bot, name: string, type?: string) {
-        switch (name) {
-            case '@s':
-                return bot.entity;
-            case '@p':
-                return type ? bot.nearestEntity() : bot.nearestEntity(ent => ent.type === type);
-            case '@h':
-                return bot.nearestEntity(entity => entity.name === SPEAKER);
-            default:
-                return bot.nearestEntity(entity => entity.name === name);
-        }
-    }
-
+namespace ToolKit {
     export function view(bot: Bot, port: number = 3007) {
         bot.once("spawn", () => {
             viewer(bot, { port: port, firstPerson: true });
         });
-        debug(WarnLevel.INFO, bot, "机器人视角功能已开启,端口为 " + port)
+        Scaffold.ErrHandle.debug(WarnLevel.INFO, bot, "机器人视角功能已开启,端口为 " + port)
     }
 
     export function msgListen(
@@ -49,56 +34,6 @@ export namespace funcKit {
         fn ||= (msg) => { console.log(msg.toAnsi()) };
         bot.on('message', fn)
     }
-
-    export function lookAt(bot: Bot, target: Entity) {
-        const bhv = setInterval(() => {
-            if (!target) return;
-            bot.lookAt(target.position.offset(0, target.height, 0));
-        }, 50);
-        BEHAVIORS.set("lookAt", bhv);
-    }
-
-    export function moveTo(bot: Bot, target: Entity, movement?: Movements) {
-        if (!target) {
-            target = bot.nearestEntity() as Entity;
-            debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!")
-        }
-
-        const {x, y, z} = target.position;
-
-        if (!movement)
-            movement = new Movements(bot);
-
-        bot.pathfinder.setMovements(movement);
-        bot.pathfinder.setGoal(new goals.GoalNear(x, y, z, 1))
-    }
-
-    export function attack(bot: Bot, target: Entity) {
-        target = target || bot.nearestEntity();
-
-        if (target)
-            bot.pvp.attack(target);
-        else
-            debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!");
-    }
-
-    export function hunt(bot: Bot, target: Entity | string, movement?: Movements) {
-        // @ts-expect-error
-        target ||= bot.nearestEntity();
-
-        if (typeof target === "string")
-            // @ts-expect-error
-            target = funcKit.findTargetWithName(bot, target);
-
-        if (typeof target === "object") {
-            lookAt(bot, target);
-            moveTo(bot, target, movement);
-            attack(bot, target);
-        }
-        else
-            debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!");
-    }
-
 }
 
 
@@ -122,15 +57,15 @@ export class Base {
         this._bot.loadPlugin(pvp);
 
         if (flags.view)
-            funcKit.view(this._bot);
+            ToolKit.view(this._bot);
         if (flags.msg)
-            funcKit.msgListen(this._bot, flags.msg instanceof Function ? flags.msg : null);
+            ToolKit.msgListen(this._bot, flags.msg instanceof Function ? flags.msg : null);
 
     }
 
     get bot() { return this._bot; }
 
-    get movements() {
+    movements() {  // 由于需要惰性求值,所以不为取值器,使用时应传该函子
         this._movements ||= new Movements(this._bot);
         return this._movements;
     }
@@ -141,7 +76,7 @@ export class Base {
 
     parsing() {
         this._bot.on("chat", (name, msg) => {
-            SPEAKER = name;
+            SPEAKER.value = name;
             if (name === this._bot.username) return;
 
             if (this._interpreter && name !== this._bot.username && msg.startsWith("\\"))
@@ -157,7 +92,7 @@ export class Base {
                 console.warn(WarnLevel.DEBUG, "Received message from worker: ", msg);
             })
 
-            sleep(1000).then(() => {
+            Scaffold.sleep(1000).then(() => {
                 worker.postMessage('Hello Worker!');
             })
 
@@ -166,7 +101,7 @@ export class Base {
             parentPort?.on('message', (msg) => {
                 console.warn(WarnLevel.DEBUG, "Received message from parent: ", msg);
 
-                sleep(1000).then(() => {
+                Scaffold.sleep(1000).then(() => {
                     parentPort?.postMessage("Hello Parent!");
                 })
             })
@@ -180,7 +115,7 @@ export class Base {
                     fn(...func(..._args))
                 }
                 catch (e: any) {
-                    ErrHandle.pyStyleError(e.stack);
+                    Scaffold.ErrHandle.pyStyleError(e.stack);
                 }
             }
             Object.defineProperty(warp, "name", { value: fn.name })

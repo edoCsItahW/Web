@@ -8,6 +8,7 @@
  */
 import { Bot } from "mineflayer";
 import { Command, BuiltInCommand, ListCommand, StopCommand } from "./commond";
+import {WarnLevel} from "./func";
 
 
 export type FuncType = ((...args: string[]) => void) | Command
