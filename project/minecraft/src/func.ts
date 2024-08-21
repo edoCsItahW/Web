@@ -1,15 +1,16 @@
 /*
- * Copyright (c) 2024. All rights reserved.
- * This source code is licensed under the CC BY-NC-SA
- * (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
- * This software is protected by copyright law. Reproduction, distribution, or use for commercial
- * purposes is prohibited without the author's permission. If you have any questions or require
- * permission, please contact the author: 2207150234@st.sziit.edu.cn
+ - Copyright (c) 2024. All rights reserved.
+ - This source code is licensed under the CC BY-NC-SA
+ - (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+ - This software is protected by copyright law. Reproduction, distribution, or use for commercial
+ - purposes is prohibited without the author's permission. If you have any questions or require
+ - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
 import { Bot } from "mineflayer";
 import {Entity} from "prismarine-entity";
 import {goals, Movements} from "mineflayer-pathfinder";
 import { BEHAVIORS } from "./support";
+
 
 class Ref<T> {
     constructor(private _value: T) {}
@@ -116,12 +117,11 @@ export namespace Scaffold {
 
 export namespace FuncKit {
     export function str2Target(bot: Bot, name: string, type?: string) {
-        console.warn(WarnLevel.DEBUG, "FuncKit.str2Target")
         switch (name) {
             case '@s':
                 return bot.entity;
             case '@p':
-                return type ? bot.nearestEntity() : bot.nearestEntity(ent => ent.type === type);
+                return type ? bot.nearestEntity(ent => ent.type === type) : bot.nearestEntity();
             case '@h':
                 return bot.nearestEntity(entity => entity.name === SPEAKER.value);
             default:
@@ -179,5 +179,37 @@ export namespace Beahvior {
         }
         else
             Scaffold.ErrHandle.debug(WarnLevel.WARN, bot, "未指定目标或获取目标失败,自动选择最近的实体!");
+    }
+
+    export function find(bot: Bot, target: Entity | string, type: string) {
+        switch (type) {
+            case "block":
+                const ids = [bot.registry.blocksByName[target].id];
+                const blocks = bot.findBlocks({ matching: ids, maxDistance: 128, count: 10 });
+                break;
+        }
+    }
+
+    export function guard(bot: Bot, pos: number[], radius: number, movement?: Movements) {
+        if (!bot.pvp.target) {
+            // @ts-ignore
+            bot.pathfinder.setGoal(new goals.GoalBlock(pos[0], pos[1], pos[2], 1));
+        }
+
+        bot.on('physicsTick', () => {
+            const entity = bot.nearestEntity(e => e.type === 'mob' && e.position.distanceTo(bot.entity.position) < radius && e.displayName !== 'Armor Stand');
+
+            if (entity)
+                bot.pvp.attack(entity);
+            else
+                bot.pvp.stop();
+        })
+
+        // @ts-ignore
+        bot.on('stoppedAttacking', () => {
+            // @ts-ignore
+            bot.pathfinder.setGoal(new goals.GoalNear(pos[0], pos[1], pos[2], 1))
+        })
+
     }
 }

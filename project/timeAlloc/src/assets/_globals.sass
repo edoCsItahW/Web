@@ -1,0 +1,99 @@
+/*!
+ / Copyright (c) 2024. All rights reserved.
+ / This source code is licensed under the CC BY-NC-SA
+ / (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+ / This software is protected by copyright law. Reproduction, distribution, or use for commercial
+ / purposes is prohibited without the author's permission. If you have any questions or require
+ / permission, please contact the author: 2207150234@st.sziit.edu.cn
+ /
+// -------------------Basic Settings-------------------
+body
+    margin: 0
+    padding: 0
+
+p
+    margin-block-start: 0
+    margin-block-end: 0
+    margin-inline-start: 0
+    margin-inline-end: 0
+
+
+ul
+    list-style: none
+
+// -------------------Global Variables-------------------
+/* responsive variables */
+$SCREEN-W-MOBILE: 400px
+$SCREEN-W-TABLET: 992px
+$SCREEN-W-DESKTOP: 1200px
+$SCREEN-W-LIST: [$SCREEN-W-MOBILE, $SCREEN-W-TABLET, $SCREEN-W-DESKTOP]
+$SCREEN-W-DICT: (m: $SCREEN-W-MOBILE, t: $SCREEN-W-TABLET, d: $SCREEN-W-DESKTOP)
+
+/* theme colors */
+$DARKEN-COLOR: #202020
+$LIGHTEN-COLOR: #F0FFF0FF
+$COLOR-DICT: ('darken': $DARKEN-COLOR, 'lighten': $LIGHTEN-COLOR)
+$COLOR-DICT-REVERSE: ('lighten': $DARKEN-COLOR, 'darken': $LIGHTEN-COLOR)
+$NOW-THEME: 'darken'
+
+// -------------------Global Functions------------------
+
+/// 根据全局变量的变化自动切换主题色
+///
+/// @param {Map} $colorDict 颜色字典，键为主题色名称，值为颜色值
+/// @return {Color} 自动切换的主题色
+@function auto-theme($colorDict: $COLOR-DICT)
+    @if map-has-key($colorDict, $NOW-THEME)
+        @return map-get($colorDict, $NOW-THEME)
+    @else
+        @error "Theme color not found in the color dictionary."
+
+%split
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+%a
+    text-decoration: none
+
+
+@function isNumber($value)
+    @return type-of($value) == 'number'
+
+@function isString($value)
+    @return type-of($value) =='string'
+
+@function isColor($value)
+    @return type-of($value) == 'color'
+
+@function isList($value)
+    @return type-of($value) == 'list'
+
+@mixin fiexed-height($height, $overflow: hidden)
+    height: $height
+    overflow: $overflow
+
+@mixin responsive-property($property, $radius...)
+    @each $minWidth in $SCREEN-W-LIST
+        $tmpList: ()
+        @each $v in $radius
+            @debug if(isNumber($v), $v * $minWidth, $v)
+            $tmpList: append($tmpList, if(isNumber($v), $v * $minWidth / 10, $v))
+        @media screen and (min-width: $minWidth)
+            #{$property}: $tmpList
+
+@mixin responsive-manul($property, $dict, $func: null)
+    @each $key, $value in $dict
+        @if map-has-key($dict, $key)
+            @media screen and (min-width: map-get($SCREEN-W-DICT, $key))
+                #{$property}: if($func, call($func, $value), $value)
+        @else
+            @warn "No value for key '#{$key}' in the dictionary."
+
+@function negation($value, $list: [$DARKEN-COLOR, $LIGHTEN-COLOR])
+    @if index($list, $value)
+        $idx: index($list, $value)
+        @return nth($list, if($idx == 1, 2, 1))
+    @else
+        @return $value

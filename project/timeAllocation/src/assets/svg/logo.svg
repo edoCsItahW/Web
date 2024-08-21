@@ -1,0 +1,19 @@
+<!--
+  - Copyright (c) 2024. All rights reserved.
+  - This source code is licensed under the CC BY-NC-SA
+  - (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+  - This software is protected by copyright law. Reproduction, distribution, or use for commercial
+  - purposes is prohibited without the author's permission. If you have any questions or require
+  - permission, please contact the author: 2207150234@st.sziit.edu.cn
+  -->
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="url(#b)" viewBox="0 0 16 16">
+    <defs>
+        <linearGradient id="b" x1="0" y1="0" x2="16" y2="16" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#003B1C" stop-opacity="1"/>
+            <stop offset="30%" stop-color="#00FF77" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#13BAC9" stop-opacity="1"/>
+        </linearGradient>
+    </defs>
+    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+</svg>

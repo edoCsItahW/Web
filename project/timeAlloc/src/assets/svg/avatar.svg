@@ -1,0 +1,30 @@
+<!--
+  - Copyright (c) 2024. All rights reserved.
+  - This source code is licensed under the CC BY-NC-SA
+  - (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+  - This software is protected by copyright law. Reproduction, distribution, or use for commercial
+  - purposes is prohibited without the author's permission. If you have any questions or require
+  - permission, please contact the author: 2207150234@st.sziit.edu.cn
+  -->
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="32" height="32" viewBox="0 0 500 500">
+
+<g transform="translate(0,512) scale(0.1,-0.1)"
+fill="#fff" stroke="white">
+<path d="M2035 4793 c-267 -33 -496 -154 -651 -344 -221 -270 -282 -625 -164
+-951 108 -298 360 -523 675 -604 115 -30 296 -36 400 -15 375 77 653 331 762
+696 24 81 26 106 27 250 0 192 -17 273 -94 430 -115 235 -317 412 -568 495
+-112 37 -284 56 -387 43z"/>
+<path d="M1710 2675 c-291 -49 -535 -178 -741 -392 -222 -230 -350 -523 -366
+-838 -5 -99 -4 -115 15 -152 26 -49 62 -79 112 -93 24 -7 294 -9 751 -8 l713
+3 1 175 c1 123 7 197 19 250 88 396 328 714 666 885 28 14 50 31 48 36 -10 31
+-245 110 -397 135 -113 18 -711 18 -821 -1z"/>
+<path d="M3289 2394 c-335 -60 -636 -300 -768 -610 -63 -148 -76 -221 -75
+-419 0 -152 3 -192 21 -257 34 -119 81 -224 146 -321 253 -378 718 -547 1154
+-421 444 129 753 538 753 999 0 506 -368 943 -869 1030 -102 18 -260 18 -362
+-1z m384 -595 c44 -12 161 -117 207 -187 24 -36 30 -56 30 -99 0 -30 -6 -66
+-14 -81 -13 -25 -395 -413 -427 -433 -34 -22 -210 -69 -258 -69 -86 0 -149 49
+-172 133 -10 37 -7 55 21 157 18 63 40 129 50 145 10 17 108 118 217 227 225
+223 246 235 346 207z"/>
+</g>
+</svg>

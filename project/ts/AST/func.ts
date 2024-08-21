@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024. All rights reserved.
- * This source code is licensed under the CC BY-NC-SA
- * (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
- * This software is protected by copyright law. Reproduction, distribution, or use for commercial
- * purposes is prohibited without the author's permission. If you have any questions or require
- * permission, please contact the author: 2207150234@st.sziit.edu.cn
+ - Copyright (c) 2024. All rights reserved.
+ - This source code is licensed under the CC BY-NC-SA
+ - (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+ - This software is protected by copyright law. Reproduction, distribution, or use for commercial
+ - purposes is prohibited without the author's permission. If you have any questions or require
+ - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
 
 import ts from 'typescript'
@@ -58,45 +58,26 @@ export function setToJson(key: string, value: any): any
 export function setToJson(arg1: any, arg2?: any) {
     if (arg2 === undefined) {
         const stack = [arg1];
-
         while (stack.length) {
             const current = stack.pop();
-
             if (Array.isArray(current)) {
                 current.reverse();
-
                 while (current.length) {
                     let item = current.pop();
-
-                    if (item instanceof Set)
-                        item = Array.from(item);
-
-                    else if (typeof item === 'object' && item !== null)
-                        stack.push(item);
-
-                    else
-                        if (!current.length)
-                            current.reverse();
-
-                    if (Array.isArray(current))
-                        stack.push(item);
-
+                    if (item instanceof Set) item = Array.from(item);
+                    else if (typeof item === 'object' && item !== null) stack.push(item);
+                    else if (!current.length) current.reverse();
+                    if (Array.isArray(current)) stack.push(item);
                 }
             }
 
             else if (typeof current === 'object' && current !== null) {
                 Object.entries(current).forEach(([k, v]) => {
-                    if (v instanceof Set)
-                        current[k] = Array.from(v);
-
-                    else if (typeof v === 'object' && v !== null)
-                        stack.push(v);
-
-                    else
-                        current[k] = v;
+                    if (v instanceof Set) current[k] = Array.from(v);
+                    else if (typeof v === 'object' && v !== null) stack.push(v);
+                    else current[k] = v;
                 })
             }
-
         }
         return arg1;
     }

@@ -8,46 +8,21 @@
  */
 import { Base } from "./support";
 import { Interpreter } from "./interpreter";
-import { performance } from "perf_hooks";
+import {MoveCommand, LookCommand, AttackCommand, HuntCommand, GuardCommand} from "./commond";
 import { Beahvior, FuncKit } from "./func";
-import { MoveCommand, LookCommand } from "./commond";
 
 
 const base = new Base('bastBot', {msg: true, view: true});
 
 base.interpreter = new Interpreter(base.bot,
-    new MoveCommand(base.bot, base.movements),
-    base.stdWrap((...args: string[]) => { return [base.bot, FuncKit.str2Target(base.bot, args[0])] })(Beahvior.attack),
+    new MoveCommand(base.bot, () => { return base.movements; }),
+    new AttackCommand(base.bot),
     new LookCommand(base.bot),
-    base.stdWrap((...args: string[]) => { return [base.bot, FuncKit.str2Target(base.bot, args[0]), base.movements] })(Beahvior.hunt),
+    new HuntCommand(base.bot, () => { return base.movements; }),
+    new GuardCommand(base.bot, () => { return base.movements; })
 )
 
 base.parsing()
-
-base.bot.on('chat', async (username: string, message: string) => {
-    if (username === base.bot.username) return
-
-    if (message === 'loaded') {
-        console.log(base.bot.entity.position)
-        await base.bot.waitForChunksToLoad()
-        base.bot.chat('Ready!')
-    }
-
-    if (message.startsWith('find')) {
-        const name = message.split(' ')[1]
-        if (base.bot.registry.blocksByName[name] === undefined) {
-            base.bot.chat(`${name} is not a block name`)
-            return
-        }
-        const ids = [base.bot.registry.blocksByName[name].id]
-
-        const startTime = performance.now()
-        const blocks = base.bot.findBlocks({ matching: ids, maxDistance: 128, count: 10 })
-        const time = (performance.now() - startTime).toFixed(2)
-
-        base.bot.chat(`I found ${blocks.length} ${name} blocks in ${time} ms`)
-    }
-})
 
 function protecteSelf() {
     let hostileId: number | null = null;

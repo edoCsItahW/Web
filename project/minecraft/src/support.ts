@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024. All rights reserved.
- * This source code is licensed under the CC BY-NC-SA
- * (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
- * This software is protected by copyright law. Reproduction, distribution, or use for commercial
- * purposes is prohibited without the author's permission. If you have any questions or require
- * permission, please contact the author: 2207150234@st.sziit.edu.cn
+ - Copyright (c) 2024. All rights reserved.
+ - This source code is licensed under the CC BY-NC-SA
+ - (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+ - This software is protected by copyright law. Reproduction, distribution, or use for commercial
+ - purposes is prohibited without the author's permission. If you have any questions or require
+ - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
 import { Bot, createBot  } from "mineflayer";
 import { mineflayer as viewer } from "prismarine-viewer";
@@ -65,7 +65,7 @@ export class Base {
 
     get bot() { return this._bot; }
 
-    movements() {  // 由于需要惰性求值,所以不为取值器,使用时应传该函子
+    get movements() {  // 由于需要惰性求值,所以不为取值器,使用时应传该函子
         this._movements ||= new Movements(this._bot);
         return this._movements;
     }
