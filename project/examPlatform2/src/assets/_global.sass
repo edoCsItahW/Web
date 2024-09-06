@@ -1,0 +1,36 @@
+/*!
+ / Copyright (c) 2024. All rights reserved.
+ / This source code is licensed under the CC BY-NC-SA
+ / (Creative Commons Attribution-NonCommercial-NoDerivatives) License, By Xiao Songtao.
+ / This software is protected by copyright law. Reproduction, distribution, or use for commercial
+ / purposes is prohibited without the author's permission. If you have any questions or require
+ / permission, please contact the author: 2207150234@st.sziit.edu.cn
+ /
+@use "sass:math"
+
+$TOP_HEIGHT: 100vh
+$NOW_THEME: light
+$DARK_DICT: (font: #171717)
+$LIGHT_DICT: (font: #e4e4e4)
+
+@function relaSize($size)
+    @return math.div($TOP_HEIGHT, $size)
+
+@mixin optionChoiced($color: #217fff)
+    color: $color !important
+    font-weight: bold
+    cursor: pointer
+    border-bottom: 2px solid $color
+
+@mixin optionHover($color: #217fff)
+    &:hover
+        cursor: pointer
+        border-bottom: 2px solid $color
+
+@mixin iconHover($scale: 1.05, $color: transparent)
+    &:hover
+        cursor: pointer
+        background-color: $color
+        transform: scale($scale)
+
+    transition: transform .2s ease-in-out

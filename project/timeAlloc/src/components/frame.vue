@@ -17,7 +17,7 @@ export default {
 <template>
     <div class="frame">
 
-        <header class="frame-header">
+        <header class="ph-header">
 
             <div class="frame-header-logo">
 

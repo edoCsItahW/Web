@@ -59,7 +59,7 @@ export default {
 <template>
     <div class="home">
 
-        <frame class="home-content">
+        <Frame class="home-content">
 
             <div id="clock"></div>
 
@@ -93,7 +93,7 @@ export default {
 
             </div>
 
-        </frame>
+        </Frame>
 
     </div>
 </template>

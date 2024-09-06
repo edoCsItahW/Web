@@ -1,0 +1,14 @@
+{
+    "name": "spawner",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.ts",
+    "scripts": {
+        "run": "ts-node main.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/edoCsItahW/Web"
+    },
+    "private": true
+}

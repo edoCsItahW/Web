@@ -6,18 +6,14 @@
  - purposes is prohibited without the author's permission. If you have any questions or require
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
-import {fileURLToPath} from 'node:url'
-import {mergeConfig, defineConfig, configDefaults} from 'vitest/config'
-import viteConfig from './vite.config'
+import { describe, it, expect } from 'vitest'
 
+import { mount } from '@vue/test-utils'
+import HelloWorld from '../HelloWorld.vue'
 
-export default mergeConfig(
-    viteConfig,
-    defineConfig({
-        test: {
-            environment: 'jsdom',
-            exclude: [...configDefaults.exclude, 'e2e/**'],
-            root: fileURLToPath(new URL('./', import.meta.url))
-        }
-    })
-)
+describe('HelloWorld', () => {
+  it('renders properly', () => {
+    const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
+    expect(wrapper.text()).toContain('Hello Vitest')
+  })
+})
