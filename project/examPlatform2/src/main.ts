@@ -6,13 +6,10 @@
  - purposes is prohibited without the author's permission. If you have any questions or require
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 
-import App from './App.vue'
-import router from './router/router'
+import App from "./App.vue";
+import router from "./router/router";
 
-const app = createApp(App)
-    .use(createPinia())
-    .use(router)
-    .mount('#app')
+const app = createApp(App).use(createPinia()).use(router).mount("#app");

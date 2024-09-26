@@ -6,12 +6,12 @@
  - purposes is prohibited without the author's permission. If you have any questions or require
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
-import {fileURLToPath, URL} from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
-import {defineConfig} from 'vite'
-import {viteMockServe} from "vite-plugin-mock";
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { defineConfig } from "vite";
+import { viteMockServe } from "vite-plugin-mock";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,12 +19,18 @@ export default defineConfig({
         vue(),
         vueDevTools(),
         viteMockServe({
-            mockPath: './src/mock'
-        })
+            mockPath: "./src/mock",
+        }),
     ],
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url))
-        }
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
+        },
+    },
+    assetsInclude: ["**/*.svg"],
+    server: {
+        host: "0.0.0.0",
+        port: 7265,
+        open: true
     }
-})
+});

@@ -6,14 +6,15 @@
  - purposes is prohibited without the author's permission. If you have any questions or require
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
-import { describe, it, expect } from 'vitest'
 
-import { mount } from '@vue/test-utils'
-import HelloWorld from '../HelloWorld.vue'
-
-describe('HelloWorld', () => {
-  it('renders properly', () => {
-    const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
-    expect(wrapper.text()).toContain('Hello Vitest')
-  })
-})
+/*****************************************************
+ * @File name: func.ts svg.d.ts
+ * @Author: edocsitahw in WebStorm
+ * @Version: 1.1
+ * @Date: 2024/09/09 下午2:24
+ * @Commend:
+ *******************************************************/
+declare module "*.svg" {
+    const content: any;
+    export default content;
+}

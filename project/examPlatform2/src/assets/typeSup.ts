@@ -9,7 +9,8 @@
 
 export namespace API {
     export type ConType = { [key: string]: any };
-
+    
+    
     export interface Data {
         countdown: number | null;
         sbj: number[];
@@ -17,25 +18,89 @@ export namespace API {
         oar: number;
         score: number;
     }
-
+    
+    
+    export interface LangCell {
+        zh: string;
+        en: string;
+    }
+    
+    
+    export interface Field {
+        label: LangCell;
+        desc: LangCell;
+        type: LangCell;
+    }
+    
+    
+    export interface Content {
+        pageHeader: {
+            title: LangCell;
+            footer: LangCell[];
+        };
+        home: {
+            header: {
+                rest: LangCell;
+                restDef: LangCell;
+            };
+            sbj: LangCell[];
+            total: LangCell[];
+            module: LangCell[];
+            paper: {
+                title: LangCell;
+                author: LangCell;
+                sbj: LangCell;
+                num: LangCell;
+            };
+        };
+        paper: {
+            left: {
+                title: LangCell;
+            };
+            right: {
+                title: LangCell;
+                desc: LangCell;
+                fields: Field[];
+                submit: LangCell;
+            };
+        };
+        settings: {
+            menu: LangCell[];
+        };
+        ques: {
+            nothing: LangCell;
+        },
+        custom: {
+            menu: LangCell[];
+            title: LangCell;
+            paragraph: LangCell;
+            list: LangCell;
+        }
+    }
+    
+    
     export interface User {
         [key: string]: {
             name: string;
             passwd: string;
             role: number;
             data: Data;
-        }
+        };
     }
-
+    
+    
     export interface Paper {
         name: string;
         sbj: number;
         num: number;
         author: string;
+        limit: number;
+        desc: string;
     }
-
+    
+    
     export type Papers = Paper[];
-
+    
     export namespace Resp {
         export interface Std<T> {
             data: T;
@@ -45,22 +110,33 @@ export namespace API {
     }
     export namespace Requ {
         export interface Std<T> {
-            url: string,
-            body: T,
-            query: object,
-            headers: object,
+            url: string;
+            body: T;
+            query: object;
+            headers: object;
+        }
+        export interface Create {
+            content: {
+                name: string;
+                sbj: number;
+                desc: string;
+                limit: number;
+            },
+            type: number;
         }
     }
 }
+
 
 export enum Theme {
     LIGHT = 'light',
     DARK = 'dark',
 }
 
+
 export enum Subject {
     MATH,
     ENGLISH,
     POLITICS,
-    COMPUTER_SCIENCE
+    COMPUTER_SCIENCE,
 }

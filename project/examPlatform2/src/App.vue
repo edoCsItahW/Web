@@ -7,28 +7,31 @@
   - permission, please contact the author: 2207150234@st.sziit.edu.cn
   -->
 <script lang="ts">
-import router from "@/router/router"
+import router from "@/router/router";
 import { Store_ } from "@/stores/stores";
-
+import { color } from "@/assets/global";
 
 onload = () => {
     Store_().init();
     router.push("/");
-}
+};
 
-export default {}
+export default {
+    setup() {
+        const store = Store_();
+        return { store, color };
+    },
+};
 </script>
 
 <template>
-
-    <div class="root">
-
-        <router-view>
-
-        </router-view>
-
+    
+    <div class="root" :style="{ backgroundColor: color('back', true) }">
+        
+        <router-view></router-view>
+        
     </div>
-
+    
 </template>
 
 <style lang="sass">
@@ -38,10 +41,12 @@ body
     margin: 0
 p
     margin: 0
+a
+    text-decoration: none
+    color: black
 
 .root
     height: $TOP_HEIGHT
     overflow-y: hidden
     position: relative
-
 </style>

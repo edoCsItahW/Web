@@ -1,0 +1,8 @@
+{
+    "main": {
+        "menus": [
+            {"zh": "文件", "en": "File"},
+            {"zh": "设置", "en": "Settings"}
+        ]
+    }
+}

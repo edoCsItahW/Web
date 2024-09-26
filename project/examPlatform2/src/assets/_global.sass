@@ -13,6 +13,10 @@ $NOW_THEME: light
 $DARK_DICT: (font: #171717)
 $LIGHT_DICT: (font: #e4e4e4)
 
+$WIDTH_MAP: (mobile: 430px, tablet: 1024px)
+$WIDTH_LIST: map-keys($WIDTH_MAP)
+
+
 @function relaSize($size)
     @return math.div($TOP_HEIGHT, $size)
 
@@ -30,7 +34,8 @@ $LIGHT_DICT: (font: #e4e4e4)
 @mixin iconHover($scale: 1.05, $color: transparent)
     &:hover
         cursor: pointer
-        background-color: $color
+        background-color: $color !important
         transform: scale($scale)
 
-    transition: transform .2s ease-in-out
+    transition: all .2s ease-in-out
+

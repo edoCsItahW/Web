@@ -1,0 +1,42 @@
+{
+    "files": [],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        },
+        {
+            "path": "./tsconfig.app.json"
+        },
+        {
+            "path": "./tsconfig.vitest.json"
+        }
+    ],
+    "include": [
+        "./src/components/*.vue",
+        "./src/components/**/*.vue",
+        "./src/*.d.ts",
+        "./src/**/*.ts",
+        "./src/**/*.json"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "module": "ESNext",
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outDir": "./dist",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
+    }
+}
