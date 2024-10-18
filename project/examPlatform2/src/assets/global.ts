@@ -55,6 +55,12 @@ export namespace Func {
                 return Object.entries(obj).map(([k, v], i) => [i, [k, v]]);
         }
     }
+    
+    export function swap<T>(arr: T[], i: number, j: number) {
+        const temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 }
 
 export function color(key: string, reversal: boolean = false): string {

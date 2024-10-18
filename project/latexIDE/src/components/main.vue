@@ -14,6 +14,12 @@ import { mapState} from "pinia";
 import { Type } from "@/assets/global";
 
 
+const prompts = [
+    "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega",
+    "varepsilon", "varphi"
+]
+
+
 export default {
     data() {
         return {
@@ -61,8 +67,9 @@ export default {
             </div>
             
             <div class="main-window-show">
-            
-                <markdown :markdown="code"></markdown>
+                
+                <latex :latex="code" />
+<!--                <markdown :markdown="code"></markdown>-->
             
             </div>
         

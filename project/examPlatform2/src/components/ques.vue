@@ -10,6 +10,9 @@
 import { color } from "@/assets/global";
 import { Store_ } from "@/stores/stores";
 
+// TODO: 实现无提示的添加题目窗口
+// TODO: 实现题目所见即所得功能
+// TODO: 实现宏,信息填写功能
 
 export default {
     data() {

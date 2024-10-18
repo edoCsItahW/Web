@@ -93,6 +93,9 @@ importers:
       typescript:
         specifier: ~5.4.0
         version: 5.4.5
+      vatex:
+        specifier: ^0.1.0
+        version: 0.1.0(katex@0.16.11)(vue@3.5.4(typescript@5.4.5))
       vite:
         specifier: ^5.3.1
         version: 5.4.3(@types/node@20.16.5)(sass-embedded@1.78.0)
@@ -2586,6 +2589,16 @@ packages:
 
   varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
+
+  vatex@0.1.0:
+    resolution: {integrity: sha512-m+mE55VsRNIHP1fqaNr5gDbc3RxDh+udkej1Q3UoOek4JvBGiydT4diGHl/28E3crJFmhuQo1Q3rA+jbur0avw==}
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.11
+      katex: ^0.13.11
+      vue: ^2.6.12 || ^3.1.1
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
 
   verror@1.10.0:
     resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==}
@@ -5331,6 +5344,12 @@ snapshots:
   uuid@8.3.2: {}
 
   varint@6.0.0: {}
+
+  vatex@0.1.0(katex@0.16.11)(vue@3.5.4(typescript@5.4.5)):
+    dependencies:
+      katex: 0.16.11
+      vue: 3.5.4(typescript@5.4.5)
+      vue-demi: 0.14.10(vue@3.5.4(typescript@5.4.5))
 
   verror@1.10.0:
     dependencies:

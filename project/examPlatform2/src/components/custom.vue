@@ -8,18 +8,23 @@
   -->
 <script lang='ts'>
 /*****************************************************
- * @File name: func.ts custom.vue
- * @Author: edocsitahw in WebStorm
- * @Version: 1.1
- * @Date: 2024/09/14 下午7:29
- * @Commend:
+ * @file custom.vue
+ * @author: edocsitahw
+ * @version: 1.1
+ * @date: 2024/09/14 下午7:29
+ * @summary 题目结构和样式自定义组件
+ * @copyright CC BY-NC-SA
  *******************************************************/
-import { defineComponent, ref, effect, reactive, Ref } from "vue";
+import { defineComponent, reactive } from "vue";
 import { Store_ } from "@/stores/stores";
-import { color, Svg } from "@/assets/global";
+import { color, Svg, Func } from "@/assets/global";
 import { mapState } from "pinia";
 import { sleep } from "jsorigin/src";
 
+// TODO: 实现点击其它空白处关闭弹出框功能
+// TODO: 实现宏解析功能
+// TODO: 实现设置元素或快要求填写数据功能
+// TODO: 实现快自由添加功能
 
 /** @interface Block
  *
@@ -37,15 +42,24 @@ interface Block {
     content?: boolean
 }
 
+/** @enum { number } Relation
+ *
+ * @desc 区块关系枚举
+ * */
+enum Relation {
+    PARENT = 1,
+    CHILD = 2
+}
+
 
 export default defineComponent({
     data() {
         return {
-            // 菜单栏是否展开
+            /** @var { boolean } menuFlag 菜单栏是否展开 */
             menuFlag: false,
-            // 区块列表
+            /** @var { Block[] } blockList 区块列表 */
             blockList: [] as Block[],
-            // 弹出框
+            /** @var popup 弹出框数据 */
             popup: {
                 // 是否显示
                 flag: false,
@@ -76,7 +90,7 @@ export default defineComponent({
             {type: 'div', class: 'custom-input-div', content: true, style: {backgroundColor: color('fontl', true)}}
         ]) as Block[];
         
-        return { store, color, Svg, blocks };
+        return { store, color, Svg, blocks, Relation, Func };
     },
     computed: {
         ...mapState(Store_, {
@@ -85,11 +99,36 @@ export default defineComponent({
         })
     },
     methods: {
-        // 添加区块
-        addBlock(idx: number) { this.blockList.push(this.blocks[idx]); },
-        // 激活弹出框
+        /**
+         * @function addBlock
+         * @summary 新增区块
+         * @desc 根据传入的索引和关系类型,新增区块到区块列表中,为父则填入blocklist,为子则填入父元素的items中
+         * @param { number } idx 区块索引
+         * @param { Relation } relation 区块关系类型
+         * */
+        addBlock(idx: number, relation: Relation = Relation.PARENT) {
+            switch (relation) {
+                case Relation.PARENT:
+                    this.blockList.push(this.blocks[idx]); break;
+                case Relation.CHILD:
+                    const parents = this.blockList[this.log.parent];
+                    parents.items?.push(parents.items[this.log.child]);
+                    break;
+            }
+        },
+        /**
+         * @function activePopup
+         * @summary 点击弹出框目标激活弹出框
+         * @desc 根据点击的目标,激活弹出框,记录父元素和子元素索引,并更新弹出框位置
+         * @param { MouseEvent } event 点击事件
+         * @param { number[] } args 父元素和子元素索引
+         * @example
+         * // 点击父元素激活弹出框
+         * activePopup(event, 0)
+         * // 点击子元素激活弹出框
+         * activePopup(event, 0, 0)
+         * */
         activePopup(event: MouseEvent, ...args: number[]) {
-            
             const target = event.target as HTMLElement;
             
             const content: boolean = JSON.parse(target.getAttribute("content"));
@@ -98,10 +137,14 @@ export default defineComponent({
                 this.popup.target = target;
                 
                 this.log.parent = args[0];
-                this.log.child = args[1] || null;
+                this.log.child = args[1];
             }
         },
-        // 更新弹出框位置
+        /** @function updatePopup
+         * @summary 更新弹出框位置
+         * @desc 根据目标元素或坐标更新弹出框位置
+         * @param { (number | HTMLElement)[] } args 目标元素或坐标
+         * */
         updatePopup(...args: (number | HTMLElement)[]) {
             const popup = document.getElementById("popup");
             
@@ -113,35 +156,45 @@ export default defineComponent({
                 this.popup.style.left = `${left + window.scrollX}px`;
             }, 0);
         },
-        // 删除区块
+        /** @function remove
+         * @summary 删除区块
+         * @desc 根据父元素和子元素索引,删除区块,并更新弹出框状态和目标
+         * */
         remove() {
-            if (this.log.child) this.blockList[this.log.parent].items.splice(this.log.child, 1);
+            if (this.log.child !== undefined) {  // 不能简单判断为bool,因为0也是false
+                this.blockList[this.log.parent].items.splice(this.log.child, 1);
+                if (this.blockList[this.log.parent].items.length === 0)
+                    this.blockList.splice(this.log.parent, 1);
+            }
             else this.blockList.splice(this.log.parent, 1);
             
             this.popup.flag = false;
             this.popup.target = null;
         },
-        // 移动区块
+        /** @function move
+         * @summary 区块上下移动
+         * @desc 根据区块类型和方向,交换区块位置
+         * @param { 'up' | 'down' } type 移动方向
+         * */
         move(type: 'up' | 'down') {
-            console.log(type, this.blockList, this.log.parent, this.log.child)
-            if (this.log.child) {
-                if ((type === "up" && this.log.child > 0) || (type === "down" && this.log.child < this.blockList[this.log.parent].items.length - 1)) {
-                    const temp = this.blockList[this.log.parent].items[this.log.child];
-                    this.blockList[this.log.parent].items[this.log.child] = this.blockList[this.log.parent].items[this.log.child + (type === "up" ? -1 : 1)];
-                    this.blockList[this.log.parent].items[this.log.child + (type === "up" ? -1 : 1)] = temp;
-                }
+            // TODO: 解决调换无效问题(可能输入内容并没有写入模板,所以模板顺序可能已被修改,但并不会有视觉效果)
+            if (this.log.child !== undefined) {
+                const parents = this.blockList[this.log.parent];
+                if ((type === "up" && this.log.child > 0) || (type === "down" && this.log.child < parents.items.length - 1))
+                    Func.swap(parents.items, this.log.child, this.log.child + (type === "up" ? -1 : 1));
             }
-            else if ((type === 'up' && this.log.parent > 0) || (type === 'down' && this.log.parent < this.blockList.length - 1)) {
-                const temp = this.blockList[this.log.parent];
-                this.blockList[this.log.parent] = this.blockList[this.log.parent + (type === 'up' ? -1 : 1)];
-                this.blockList[this.log.parent + (type === 'up' ? -1 : 1)] = temp;
-            }
-            console.log(this.blockList, this.log.parent, this.log.child)
+            else if ((type === 'up' && this.log.parent > 0) || (type === 'down' && this.log.parent < this.blockList.length - 1))
+                Func.swap(this.blockList, this.log.parent, this.log.parent + (type === "up" ? -1 : 1));
         }
     },
     watch: {
         menuFlag: {
-            // 控制菜单栏展开
+            /**
+             * @function handler
+             * @summary 菜单栏展开/收起切换
+             * @desc 根据菜单栏展开/收起状态,更新区块列表样式,更新按钮图标,更新弹出框状态和目标
+             * @param { boolean } val 菜单栏展开/收起状态
+             * */
             handler(val: boolean) {
                 const addBtn = document.getElementById("add-btn");
                 const content = document.getElementById("custom-content-left");
@@ -167,6 +220,12 @@ export default defineComponent({
         },
         // 控制弹出框移到和消失
         "popup.target": {
+            /**
+             * @function handler
+             * @summary 弹出框目标更新
+             * @desc 根据弹出框目标更新弹出框位置,更新弹出框状态和目标
+             * @param { HTMLElement } nval 弹出框目标
+             * */
             handler(nval: HTMLElement) {
                 if (nval) {
                     this.updatePopup(nval);
@@ -250,6 +309,9 @@ export default defineComponent({
                         </div>
                         
                     </div>
+                    
+                    <!-- 弹出框(添加) -->
+                    <div class="popup-add" v-html="Svg.add(color('font'))" @click="addBlock(0, Relation.CHILD)"></div>
                     
                     <!-- 弹出框(删除) -->
                     <div class="popup-delete" v-html="Svg.remove(color('font'))" @click="remove"></div>

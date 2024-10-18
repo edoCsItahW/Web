@@ -1,0 +1,6 @@
+{
+    "out": "./docs",
+    "theme": "default",
+    "exclude": [ "**/node_modules/**", "**/*.spec.ts" ],
+    "tsconfig": "./tsconfig.json"
+}
