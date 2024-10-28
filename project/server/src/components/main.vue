@@ -19,12 +19,16 @@ import { defineComponent, provide, ref } from "vue";
 import { Store_ } from "@/stores/stores";
 import { mapState } from "pinia";
 import stdHeader from "@/components/stdHeader.vue";
+import { ModelLoader } from "@/assets/model"
+import { Three } from "@/assets/suport";
 
+// TODO: 完善3D背景
 
 export default defineComponent({
     data() {
         return {
-            scroll: { flag: true, pos: 0, frame: 0, speed: 0.5, hight: 0 }
+            scroll: { flag: true, pos: 0, frame: 0, speed: 0.5, hight: 0 },
+            three: null as Three | null
         };
     },
     setup() {
@@ -55,6 +59,12 @@ export default defineComponent({
     },
     components: {
         stdHeader
+    },
+    mounted() {
+//        const three = new Three('Poi', document.getElementById('model'));
+//        new ModelLoader("koenigsegg", 'glb').load().then(model => three.render(model));
+    },
+    beforeUnmount() {
     }
 //    watch: {
 //        "scroll.flag": {
@@ -75,6 +85,9 @@ export default defineComponent({
     
     <std-header>
         
+        <div id="model"></div>
+        
+        <!-- -->
         <div class="main" :style="{ backgroundColor: color.back }">
             
             <div class="main-containter">
@@ -144,6 +157,10 @@ export default defineComponent({
 </template>
 
 <style lang='sass'>
+#model
+    position: absolute
+    z-index: -1
+
 .main
     display: flex
     flex-direction: column

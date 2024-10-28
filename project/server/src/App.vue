@@ -32,7 +32,9 @@ export default defineComponent({
         }
     },
     setup() {
-        Store_().init();
+        const store = Store_();
+        store.init();
+        return { store };
     },
     mounted() {
         this.updateSize();
@@ -42,6 +44,7 @@ export default defineComponent({
         updateSize() {
             this.h = `${window.innerHeight}px`;
             this.w = `${window.innerWidth}px`;
+            this.store.updateStatus(window.innerWidth, window.innerHeight);
         }
     },
     beforeUnmount() {

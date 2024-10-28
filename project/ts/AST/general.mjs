@@ -8,7 +8,7 @@
  */
 
 import ts from 'typescript'
-import { extent } from 'jsPackage/comFunc/src'
+import { extent } from 'jsPackage/utils/src'
 
 
 function func(fn, ...args) {

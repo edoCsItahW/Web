@@ -7,18 +7,16 @@
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
 
-/**
- * @interface IUser
- * @description 用户信息接口
- * @property {string} name - 用户名
- * @property {string} imgUrl - 头像地址
- * */
-
 export interface LangCell {
     zh: string;
     en: string;
 }
 
+/** @interface IUser
+ * @description 用户信息接口
+ * @property {string} name - 用户名
+ * @property {string} imgUrl - 头像地址
+ * */
 export interface IUser {
     // 用户名
     name: string;
@@ -33,5 +31,6 @@ export interface IProj {
     desc: LangCell;
     // 项目地址
     url: string;
+    docUrl: string;
     intro: string;
 }

@@ -11,8 +11,8 @@
  * @file stdHeader.vue
  * @author edocsitahw
  * @version 1.1
- * @date 2024/10/17 ÉÏÎç9:53
- * @desc ±ê×¼µÄÍ·²¿×é¼ş,°üº¬ÇĞ»»ÓïÑÔºÍÇĞ»»Ö÷ÌâµÄ°´Å¥
+ * @date 2024/10/17 ä¸Šåˆ9:53
+ * @desc æ ‡å‡†çš„å¤´éƒ¨ç»„ä»¶,åŒ…å«åˆ‡æ¢è¯­è¨€å’Œåˆ‡æ¢ä¸»é¢˜çš„æŒ‰é’®
  * @copyright CC BY-NC-SA
  * */
 import { defineComponent } from "vue";
@@ -59,15 +59,15 @@ export default defineComponent({
 
 <template>
     
-    <!-- ¿ØÖÆ°´Å¥ -->
+    <!-- æ§åˆ¶æŒ‰é’® -->
     <header class="header" :style="{backgroundColor: color.back}">
         
         <div class="header-btn">
             
-            <!-- ÇĞ»»ÓïÑÔ°´Å¥ -->
+            <!-- åˆ‡æ¢è¯­è¨€æŒ‰é’® -->
             <div class="header-btn-lang" v-html="svg.lang()" @click="store.lang = lang === Lang.ZH ? Lang.EN : Lang.ZH"></div>
             
-            <!-- ÇĞ»»Ö÷Ìâ°´Å¥ -->
+            <!-- åˆ‡æ¢ä¸»é¢˜æŒ‰é’® -->
             <div class="header-btn-theme" @click="changeTheme">
                 
                 <img :src="themeSvg" alt="theme">

@@ -1,0 +1,28 @@
+{
+    "header": {
+        "options": [
+            { "zh": "首页", "en": "Home" },
+            { "zh": "关于", "en": "About" },
+            { "zh": "服务", "en": "Services" },
+            { "zh": "联系", "en": "Contact" }
+        ],
+        "search": { "zh": "搜索", "en": "Search" }
+    },
+    "home": {
+        "block": {
+            "teacher": { "zh": "教师", "en": "Teacher" },
+            "score": { "zh": "评分", "en": "Score" },
+            "comment": {
+                "num": { "zh": "条评论", "en": "Comments" },
+                "ph": { "zh": "理性评论,友善互动.", "en": "Reasonable comments, friendly interaction." },
+                "submit": { "zh": "提交", "en": "Submit" },
+                "success": { "zh": "评论成功", "en": "Comment submitted successfully" }
+            }
+        }
+    },
+    "login": {
+        "title": { "zh": "登录到CCS", "en": "Login to CCS" },
+        "username": { "zh": "用户名", "en": "Username" },
+        "submit": { "zh": "登录", "en": "Login" }
+    }
+}

@@ -15,16 +15,17 @@ import { type IProj, type IUser, LangCell } from "@/assets/types";
 export const Store_ = defineStore("store", {
     state() {
         return {
+            status: {w: 0, h: 0},
             user: null as IUser | null,
             proj: null as IProj[] | null,
-            color: Theme.Color(Theme.Mode.LIGHT),
+            color: Theme.Color(Theme.Mode.DARK),
             _svg: null as _Svg | ISvg,
             lang: Lang.EN,
             _trans: undefined as { recver: string, data: any }
         };
     },
     getters: {
-        svg(state) {
+        svg(state): _Svg & ISvg {
             if (state._svg) return state._svg;
             return state._svg = Svg(state.color)
         },
@@ -51,6 +52,10 @@ export const Store_ = defineStore("store", {
         /**
          * @desc 获取用户信息
          * */
+        updateStatus(w: number, h: number) {
+            this.status.w = w;
+            this.status.h = h;
+        },
         updateUser() {
             request(API_URL, "user", { type: "info" }).success(res => { this.user = res.data; })
         },

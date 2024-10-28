@@ -39,6 +39,7 @@ export default [
                 name: { en: "Exam Platform", zh: "考试平台" },
                 desc: { en: "A platform for exams management", zh: "考试管理平台" },
                 url: "https://github.com/edoCsItahW/ExamPlatform",
+                docUrl: "https://github.com/edoCsItahW/ExamPlatform",
                 intro: "# Exam Platform" +
                     "\n" +
                     "\n" +
