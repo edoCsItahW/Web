@@ -149,7 +149,7 @@ export default defineComponent({
 
             <router-link :to="!store.user.name || store.user.name === 'guest' ? '/login' : '/profile'">
 
-                <img :src="avatarSvg" alt="avatar" class="avatar" style="cursor: pointer" :style="{ backgroundColor: color.border }" />
+                <img :src="store.user.img || avatarSvg" alt="avatar" class="avatar" style="cursor: pointer" />
 
             </router-link>
 
@@ -206,6 +206,9 @@ $rate-map: (logo: 1, options: 6, search: 1, control: 1, user: 1)
         width: 50%
         display: flex
         flex-direction: row
+        //word-wrap: break-word
+        //overflow-wrap: break-word
+        white-space: nowrap
 
         li
             transition: border-bottom-color 0.2s ease-in-out

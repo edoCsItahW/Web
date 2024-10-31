@@ -28,7 +28,8 @@ export default defineComponent({
     data() {
         return {
             h: '100%',
-            w: '100%'
+            w: '100%',
+            back: '',
         }
     },
     setup() {
@@ -49,13 +50,22 @@ export default defineComponent({
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.updateSize);
+    },
+    watch: {
+        "store.color": {
+            handler(val) {
+                this.back = val?.back;
+            },
+            deep: true,
+            immediate: true
+        }
     }
 });
 </script>
 
 <template>
     
-    <div class="root" :style="{height: h, width: w}">
+    <div class="root" :style="{height: h, width: w, backgroundColor: back}">
         
         <router-view></router-view>
         

@@ -18,11 +18,27 @@
                 "submit": { "zh": "提交", "en": "Submit" },
                 "success": { "zh": "评论成功", "en": "Comment submitted successfully" }
             }
-        }
+        },
+        "statistics": {
+            "title": { "zh": "统计数据", "en": "Statistics Data" }
+        },
+        "confirm": {"zh": "您尚未登录,是否匿名评论?", "en": "You are not logged in. Would you like to comment anonymously?"}
     },
     "login": {
-        "title": { "zh": "登录到CCS", "en": "Login to CCS" },
+        "title": {
+            "login": { "zh": "登录到CCS", "en": "Login to CCS" },
+            "register": { "zh": "注册新用户", "en": "Register a new user" }
+        },
         "username": { "zh": "用户名", "en": "Username" },
-        "submit": { "zh": "登录", "en": "Login" }
+        "password": { "zh": "密码", "en": "Password" },
+        "confirm": { "zh": "确认密码", "en": "Confirm Password" },
+        "submit": {
+            "login": { "zh": "登录", "en": "Login" },
+            "register": { "zh": "注册", "en": "Register" }
+        }
+    },
+    "profile": {
+        "leaveword": { "zh": "留言板", "en": "Leave word" },
+        "logout": { "zh": "退出登录", "en": "Logout" }
     }
 }

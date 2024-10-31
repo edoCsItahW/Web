@@ -7,7 +7,7 @@
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
 import { defineStore } from "pinia";
-import { request, API_URL } from "jspackage/src";
+import { request, API_URL } from "confunc";
 import { Theme, Svg, _Svg, type ISvg, Lang } from "@/assets/global";
 import { type IProj, type IUser, LangCell } from "@/assets/types";
 

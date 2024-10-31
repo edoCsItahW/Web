@@ -51,6 +51,9 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.5.1
         version: 0.5.1
+      confunc:
+        specifier: link:E:/codeSpace/codeSet/web/jsPackage/utils
+        version: link:../../jsPackage/utils
       cypress:
         specifier: ^13.12.0
         version: 13.15.0
@@ -66,9 +69,6 @@ importers:
       jsdom:
         specifier: ^24.1.0
         version: 24.1.3
-      jspackage:
-        specifier: link:E:/codeSpace/codeSet/web/jsPackage/utils
-        version: link:../../jsPackage/utils
       marked:
         specifier: ^14.1.3
         version: 14.1.3

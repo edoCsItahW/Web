@@ -69,6 +69,9 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
       sass:
         specifier: ^1.80.3
         version: 1.80.3
@@ -90,6 +93,9 @@ importers:
       vitest:
         specifier: ^2.1.2
         version: 2.1.3(@types/node@20.16.14)(jsdom@25.0.1)(sass@1.80.3)
+      vue-simple-uploader:
+        specifier: ^0.7.6
+        version: 0.7.6(vue@3.5.12(typescript@5.5.4))
       vue-tsc:
         specifier: ^2.1.6
         version: 2.1.6(typescript@5.5.4)
@@ -2265,6 +2271,9 @@ packages:
     resolution: {integrity: sha512-yDMz9g+VaZkqBYS/ozoBJwaBhTbZo3UNYQHNRw1D3UFQB8oHB4uS/tAODO+ZLjGWmUbKnIlOWO+aaIiAxrUWHA==}
     engines: {node: '>= 14.16.0'}
 
+  reflect-metadata@0.2.2:
+    resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
+
   request-progress@3.0.0:
     resolution: {integrity: sha512-MnWzEHHaxHO2iWiQuHrUPBi/1WeBf5PkxQqNyNvLl9VAYSdXkP8tQ3pBSeCPD+yw0v0Aq1zosWLz0BdeXpWwZg==}
 
@@ -2356,6 +2365,9 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+
+  simple-uploader.js@0.5.6:
+    resolution: {integrity: sha512-ukjL0wZhK1dNMaQa6sd+UpCSmnUjblaUGbAd/B8f5IFrChMzDsC/7eFSK4bs4BS5NPJFSZVLI+l6Ri7THTkQtw==}
 
   sirv@2.0.4:
     resolution: {integrity: sha512-94Bdh3cC2PKrbgSOUqTiGPWVZeSiXfKOVZNJniWoqrWrRkB1CJzBU3NEbiTsPcYy1lDsANA/THzS+9WBiy5nfQ==}
@@ -2728,6 +2740,12 @@ packages:
     resolution: {integrity: sha512-4fKZygS8cH1yCyuabAXGUAsyi1b2/o/OKgu/RUb+znIYOxPRxdkytJEx+0wGcpBE1pX6vUgh5jwWOKRGvuA/7Q==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue-simple-uploader@0.7.6:
+    resolution: {integrity: sha512-DYddedNi+ZZzqxmKgW2t4lBN3aiB66oKOxgAfS9Hz9J1FHv7Xt+u1Pq8F48BFS4vG0+MFHCNzjzS2xaEUOIcHQ==}
+    engines: {node: '>= 4.0.0', npm: '>= 3.0.0'}
+    peerDependencies:
+      vue: '>=2.2'
 
   vue-tsc@2.1.6:
     resolution: {integrity: sha512-f98dyZp5FOukcYmbFpuSCJ4Z0vHSOSmxGttZJCsFeX0M4w/Rsq0s4uKXjcSRsZqsRgQa6z7SfuO+y0HVICE57Q==}
@@ -5041,6 +5059,8 @@ snapshots:
 
   readdirp@4.0.2: {}
 
+  reflect-metadata@0.2.2: {}
+
   request-progress@3.0.0:
     dependencies:
       throttleit: 1.0.1
@@ -5140,6 +5160,8 @@ snapshots:
   signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
+
+  simple-uploader.js@0.5.6: {}
 
   sirv@2.0.4:
     dependencies:
@@ -5522,6 +5544,11 @@ snapshots:
   vue-router@4.4.5(vue@3.5.12(typescript@5.5.4)):
     dependencies:
       '@vue/devtools-api': 6.6.4
+      vue: 3.5.12(typescript@5.5.4)
+
+  vue-simple-uploader@0.7.6(vue@3.5.12(typescript@5.5.4)):
+    dependencies:
+      simple-uploader.js: 0.5.6
       vue: 3.5.12(typescript@5.5.4)
 
   vue-tsc@2.1.6(typescript@5.5.4):

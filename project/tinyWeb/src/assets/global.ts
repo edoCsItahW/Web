@@ -12,7 +12,7 @@
  * @author edocsitahw
  * @version 1.1
  * @date 2024/10/25 下午4:02
- * @desc
+ * @desc 全局构件
  * @copyright CC BY-NC-SA 2024. All rights reserved.
  * */
 
@@ -29,7 +29,9 @@ export namespace Theme {
      * @property DARK 暗色模式
      * */
     export enum Mode {
+        // 亮
         LIGHT,
+        // 暗
         DARK
     }
 
@@ -38,24 +40,37 @@ export namespace Theme {
      * @property {string} font 字体颜色
      * @property {string} back 背景颜色
      * @property {string} border 边框颜色
+     * @property {string} backL 偏亮背景颜色
+     * @property {string} backD 偏暗背景颜色
+     * @property {string} fontL 偏亮字体颜色
+     * @property {string} fontD 偏暗字体颜色
      * */
     export interface IColor {
+        // 字体颜色
         font: string;
+        // 偏亮字体颜色
         fontL: string;
+        // 偏暗字体颜色
         fontD: string;
+        // 偏亮背景颜色
         backL: string;
+        // 偏暗背景颜色
         backD: string;
+        // 背景颜色
         back: string;
+        // 边框颜色
         border: string;
     }
 
     /** @class _Color
-     * @classdesc 主题颜色类
+     * @classdesc 主题颜色控制类
      * @property {Mode} mode 主题模式
      * @property {IColor} map 主题颜色映射表
+     * @property {boolean} isLight 是否为亮色模式
+     * @method hexToRgb 将十六进制颜色值转换为 RGB 值
      * */
     export class _Color {
-        #map: IColor = {
+        #map = {
             // LIGHT, DARK
             font: ["#333", "#d3d3d3"],
             fontL: ["#494949", "#9f9f9f"],
@@ -66,10 +81,12 @@ export namespace Theme {
             border: ["#888", "#888"],
         };
 
-        constructor(public mode: Mode) {
-        }
+        /** @constructor
+         * @param {Mode} mode 主题模式
+         * */
+        constructor(public mode: Mode) {}
 
-        get map() { return this.#map; }
+        get map(): IColor { return this.#map; }
 
         get isLight() { return this.mode === Mode.LIGHT; }
 
@@ -82,11 +99,11 @@ export namespace Theme {
 
 
     /** @constant Color
-     * @desc 包装 Theme._Color 类，使其可以像一个对象一样访问颜色属性
+     * @desc 使用代理包装 Theme._Color 类,控制描述符
      * */
     export const Color = (mode: Mode) => new Proxy<_Color>(new _Color(mode), {
         get: (target: _Color, key: string) => {
-            if (key in target.map) return target.map[key]?.[target.mode];
+            if (key in target.map) return target.map[key]?.[target.mode];  // 引导索引
             return target[key];
         },
         set: (target: _Color, key: string, value: any) => {
@@ -97,16 +114,29 @@ export namespace Theme {
     }) as IColor & _Color;
 }
 
+/** @interface _SvgFunc
+ * @desc SVG 通用函数接口
+ * */
 export interface _SvgFunc {
     (w?: Number, h?: Number, ...args: any[]): string;
 }
 
+/** @interface ISvg
+ * @desc SVG 实例接口
+ * @property {_SvgFunc} lang 语言改变图标
+ * @property {_SvgFunc} star 星星图标
+ * @property {_SvgFunc} comment 评论图标
+ * */
 export interface ISvg {
     lang: _SvgFunc;
     star: _SvgFunc;
     comment: _SvgFunc;
 }
 
+/** @class _Svg
+ * @classdesc svg 样式控制类
+ * @private color 主题控制类实例
+ * */
 export class _Svg {
     #map = {
         // LIGHT, DARK
@@ -115,8 +145,17 @@ export class _Svg {
         _star: ["red", "yellow"],
     };
 
+    /** @var rate
+     * @summary 缩放比例
+     * @desc 控制svg图标的缩放比例
+     * @access public
+     * @default 1
+     * */
     public rate = 1;
 
+    /** @constructor
+     * @param {Theme._Color} color 主题模式
+     * */
     constructor(private color: Theme._Color & Theme.IColor) {}
 
     get isLight() {
@@ -150,6 +189,9 @@ export class _Svg {
     }
 }
 
+/** @constant Svg
+ * @desc 使用代理包装 Svg 实例
+ * */
 export const Svg = (color: Theme._Color & Theme.IColor) => new Proxy<_Svg>(new _Svg(color), {
     get: (target: _Svg, key: string) => {
         if (key in target) return target[key];
@@ -157,6 +199,11 @@ export const Svg = (color: Theme._Color & Theme.IColor) => new Proxy<_Svg>(new _
     }
 }) as _Svg & ISvg;
 
+/** @enum Lang
+ * @desc 语言枚举
+ * @property EN 英文
+ * @property ZH 中文
+ * */
 export enum Lang {
     EN = "en",
     ZH = "zh"

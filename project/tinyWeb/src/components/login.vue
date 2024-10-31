@@ -18,13 +18,15 @@
 import { defineComponent } from "vue";
 import { Store_ } from "@/stores/stores";
 import { mapState } from "pinia";
-import { request, API_URL } from "confunc";
+import { request, API_URL, $ } from "confunc";
 import genHeader from "@/components/genHeader.vue";
+import router from "@/router/router";
+
 
 export default defineComponent({
     data() {
         return {
-            userData: { name: "", password: "" },
+            userData: { name: "", password: "", confirm: "" },
             haveUser: false
         };
     },
@@ -36,11 +38,22 @@ export default defineComponent({
         ...mapState(Store_, {
             color: state => state.color,
             content: state => state.content
-        })
+        }),
+        subAble() {
+            return !!this.userData.name && !!this.userData.password && (this.haveUser || this.userData.confirm === this.userData.password);
+        }
     },
     methods: {
-        login() {
-            console.log("login");
+        submit() {
+            request(API_URL, this.haveUser ? "login" : "register", { name: this.userData.name, password: $.toHash(this.userData.password), time: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}` })
+                .then(res => {
+                    if (res.code === 200) {
+                        this.store.updateUser(res.data.user);
+                        localStorage.setItem("token", res.data.token);
+                        router.push("/");
+                    }
+                    else alert(res.msg);
+                })
         }
     },
     components: {
@@ -50,8 +63,8 @@ export default defineComponent({
         "userData.name": {
             handler(nVal, oVal) {
                 if (nVal && nVal !== oVal)
-                    request(API_URL, "user", { name: this.userData.name, type: "query" })
-                        .success(() => this.haveUser = true);
+                    request(API_URL, "user", { data: this.userData.name, type: "query" })
+                        .success(res => this.haveUser = res.data);
                 else this.haveUser = false;
             },
             immediate: true
@@ -64,21 +77,23 @@ export default defineComponent({
 
     <genHeader>
 
-        <form class="login" :style="{ backgroundColor: color.backL, color: color.font }" @submit.prevent="login">
+        <form class="login" :style="{ backgroundColor: color.backL, color: color.font }" @submit.prevent="submit">
 
             <div class="login-title">
 
-                <h1>{{ store.format(content?.login.title) }}</h1>
+                <h1>{{ store.format(content?.login.title[haveUser ? 'login' : 'register']) }}</h1>
 
             </div>
 
             <div class="login-group">
 
-                <input type="text" v-model="userData.name" :placeholder="store.format(content?.login.username)" />
+                <input class="login-input" type="text" v-model="userData.name" :placeholder="store.format(content?.login.username)" />
 
-                <transition name="fade" mode="out-in">
+                <input class="login-input" type="password" v-model="userData.password" :placeholder="store.format(content?.login.password)" />
 
-                    <input v-if="haveUser" />
+                <transition>
+
+                    <input class="login-input" type="password" v-model="userData.confirm" :placeholder="store.format(content?.login.confirm)" v-if="!haveUser" />
 
                 </transition>
 
@@ -86,7 +101,7 @@ export default defineComponent({
 
             <div class="login-submit">
 
-                <button type="submit" :disabled="!userData.name" :style="{ color: color.font, border: `1px solid ${color.border}` }">{{ store.format(content?.login.submit) }}</button>
+                <button type="submit" :disabled="!subAble" :style="{ color: color.font, border: `1px solid ${color.border}` }">{{ store.format(content?.login.submit[haveUser ? 'login' :'register']) }}</button>
 
             </div>
 
@@ -98,6 +113,29 @@ export default defineComponent({
 
 <style lang="sass">
 @import "@/assets/global"
+.v-enter-active, .v-leave-active
+    transition: opacity 0.3s ease-in-out
+
+
+.v-enter-from, .v-leave-to
+    opacity: 0
+
+.login-input
+    width: 100%
+    outline: none
+    font-size: 16px
+    padding: 8px
+    border-radius: 5px
+    display: block
+    box-sizing: border-box
+    border: 1px solid #eee
+    margin-bottom: 10px
+
+    &:focus
+        border-color: #618eff
+
+    &::placeholder
+        font-size: 14px
 
 .login
     position: absolute
@@ -107,7 +145,7 @@ export default defineComponent({
     max-width: 360px
     width: 50%
     min-width: 300px
-    min-height: 25%
+    min-height: 30%
     border-radius: 10px
     display: flex
     flex-direction: column
@@ -116,6 +154,9 @@ export default defineComponent({
     padding: 20px 40px
 
     &-title
+        display: flex
+        justify-content: center
+        align-items: center
         text-align: center
         flex: 1
 
@@ -124,19 +165,9 @@ export default defineComponent({
         display: flex
         flex-direction: column
         align-items: center
+        justify-content: space-around
         width: 100%
 
-        input[type="text"]
-            width: 100%
-            outline: none
-            padding: 10px
-            border-radius: 5px
-            display: block
-            box-sizing: border-box
-            border: 1px solid #eee
-
-            &:focus
-                border-color: #618eff
 
     &-submit
         flex: 1

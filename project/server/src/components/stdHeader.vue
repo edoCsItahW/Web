@@ -60,7 +60,7 @@ export default defineComponent({
 <template>
     
     <!-- 控制按钮 -->
-    <header class="header" :style="{backgroundColor: color.back}">
+    <header class="header" style="background-color: transparent;">
         
         <div class="header-btn">
             
@@ -79,6 +79,12 @@ export default defineComponent({
     </header>
     
     <slot></slot>
+    
+    <footer class="footer" style="background-color: transparent;" :style="{ color: color.font }">
+        
+        <a href="https://beian.miit.gov.cn" target="_blank">粤ICP备2024321318号</a>
+        
+    </footer>
 
 </template>
 
@@ -103,5 +109,17 @@ export default defineComponent({
             &:hover
                 cursor: pointer
                 filter: brightness(0.8) contrast(1.2) saturate(1.5)
-                
+            
+.footer
+    display: flex
+    justify-content: space-around
+    align-items: center
+    padding: 20px
+    
+    a
+        text-decoration: none
+        
+        &:visited
+            color: #738aff
+        //color: inherit
 </style>

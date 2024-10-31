@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { Theme, Svg, ISvg, _Svg, Lang,  } from "@/assets/global";
-import { LangCell } from "@/assets/types";
+import { LangCell, Content } from "@/assets/types";
 import { reactive } from "vue";
 import content from "@/assets/content.json";
 
@@ -15,13 +15,14 @@ export const Store_ = defineStore("store", {
              * */
             _svg: null as ISvg & _Svg | null,
             lang: Lang.ZH,
-            content: content,
+            content: content as Content,
             /**
              * @desc 选项卡索引
              * */
             optIdx: 0,
-            user: { name: null },  // anonym
-            controlOnly: false
+            user: { name: null as string, img: null as string | null, id: null as string | null },  // anonym
+            controlOnly: false,
+            trans: { target: null as string | null, data: null as any | null }
         };
     },
     getters: {
@@ -43,6 +44,17 @@ export const Store_ = defineStore("store", {
             localStorage.setItem("mode", this.color.mode.toString());
         },
         changeLang() { this.lang = this.lang === Lang.ZH ? Lang.EN : Lang.ZH; },
-        format(key: LangCell): string { return key[this.lang]; }
+        format(key: LangCell): string { return key[this.lang]; },
+        updateUser(user: { name: string, img: string | null, id: string | null }) {
+            this.user = user;
+        },
+        resetUser() {
+            this.user = { name: null, img: null, id: null };
+            localStorage.removeItem("token");
+        },
+        sendto(data: any, target: string | null) {
+            this.trans.data = data;
+            this.trans.target = target;
+        }
     }
 });

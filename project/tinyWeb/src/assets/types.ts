@@ -20,21 +20,61 @@ export interface LangCell {
     zh: string;
 }
 
-export interface Comment {
-    user: string;
+export interface Cmt {
+    user: { name: string; img: string | null, id: number };
     content: string;
     time: string;
     date: string;
 }
 
+export interface Content {
+    header: {
+        options: LangCell[];
+        search: LangCell;
+    },
+    home: {
+        block: {
+            teacher: LangCell;
+            score: LangCell;
+            comment: {
+                num: LangCell;
+                ph: LangCell;
+                submit: LangCell;
+                success: LangCell;
+            }
+        },
+        statistics: {
+            title: LangCell;
+        },
+        confirm: LangCell
+    },
+    login: {
+        title: {
+            login: LangCell;
+            register: LangCell;
+        },
+        username: LangCell;
+        password: LangCell;
+        confirm: LangCell;
+        submit: {
+            login: LangCell;
+            register: LangCell;
+        }
+    },
+    profile: {
+        leaveword: LangCell;
+        logout: LangCell;
+    }
+}
+
 export interface Course {
-    idx: number;
+    id: number;
     imgUrl: string;
     title: string;
     text: string;
     teacher: string;
     stars: number;
-    comment: Comment[];
+    comment: Cmt[];
 }
 
 export type Courses = Course[];

@@ -90,51 +90,49 @@ class _Promise {
 }
 
 export namespace $ {
+    /** 根据元素id获取元素对象
+     *
+     * @param {string} elementId - 元素id
+     * @returns {HTMLElement} - 元素对象
+     * */
     export function id(elementId: string): HTMLElement {
-        /* 根据元素id获取元素对象
-         *
-         * @param {string} elementId - 元素id
-         * @returns {HTMLElement} - 元素对象
-         * */
+        
         
         return document.getElementById(elementId);
     }
     
+    /** 根据类名获取元素对象
+     *
+     * @param {string} classNames - 类名
+     * @param {number} index - 索引(默认为0)
+     * @returns {Element | HTMLCollectionOf<Element>} - 元素对象或元素集合
+     * */
     export function class_(
             classNames: string,
             index: number = 0,
     ): Element | HTMLCollectionOf<Element> {
-        /* 根据类名获取元素对象
-         *
-         * @param {string} classNames - 类名
-         * @param {number} index - 索引(默认为0)
-         * @returns {Element | HTMLCollectionOf<Element>} - 元素对象或元素集合
-         * */
         
         return typeof index === "number"
                 ? document.getElementsByClassName(classNames)[index]
                 : document.getElementsByClassName(classNames);
     }
     
+    /** 生成字符串的哈希值
+     *
+     * @param {string} str - 字符串
+     * @returns {string} - 哈希值
+     * */
     export function toHash(str: string) {
-        /* 生成字符串的哈希值
-         *
-         * @param {string} str - 字符串
-         * @returns {string} - 哈希值
-         * */
-        
         // return crypto.createHash('sha256').update(string).digest('hex')
         return CryptoJS.SHA256(str).toString();
     }
-    
+    /** 获取数组bigArray对smallArray的补集(bigArray包含smallArray)(bigArray中存在但smallArray中不存在的元素)
+     *
+     * @param {Array} bigArray - 包含smallArray中所有元素的数组
+     * @param {Array} smallArray - 该数组中的所有元素都可以在数组bigArray中被找到
+     * @returns {Array} - 补集数组
+     * */
     export function getComplement(bigArray: any[], smallArray: any[]): any[] {
-        /* 获取数组bigArray对smallArray的补集(bigArray包含smallArray)(bigArray中存在但smallArray中不存在的元素)
-         *
-         * @param {Array} bigArray - 包含smallArray中所有元素的数组
-         * @param {Array} smallArray - 该数组中的所有元素都可以在数组bigArray中被找到
-         * @returns {Array} - 补集数组
-         * */
-        
         return bigArray.filter((element) => !smallArray.includes(element));
     }
 }

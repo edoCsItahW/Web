@@ -1,11 +1,12 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
 import { Store_ } from "@/stores/stores";
 import home from "@/components/home.vue";
 import login from "@/components/login.vue";
 import profile from "@/components/profile.vue";
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+//    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(),
     routes: [
         {
             path: "/",
@@ -27,7 +28,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const store = Store_();
-    store.controlOnly = ["login", "profile"].includes(to.name);
+    store.controlOnly = ["login"].includes(to.name as string);
 
     next();
 })

@@ -1,82 +1,71 @@
 [
     {
-        "idx": 1,
+        "id": 1,
         "imgUrl": "https://pic2.zhimg.com/v2-e7eb3661da5d8125fc5423febf0a0669_b.jpg",
-        "title": "《白夜行》",
-        "text": "《白夜行》是一部由张国荣执导，张丰毅、张晨初、张智尧、刘德华、张译、刘奕君、刘昊然、刘若英、刘涛主演的奇幻冒险电影。",
-        "teacher": "张无忌",
+        "title": "计算机组成原理",
+        "text": "《计算机组成原理》是一门研究计算机系统结构和硬件设计的基础课。",
+        "teacher": "邓俊辉",
         "stars": 5,
         "comment": [
             {
-                "user": "小明",
-                "content": "这本书很棒！",
+                "user": { "name": "小明", "img": null, "id": 3 },
+                "content": "水课",
                 "date": "2021/01/01"
             },
             {
-                "user": "小红",
-                "content": "这本书很棒！",
+                "user": { "name": "小红", "img": null, "id": 4 },
+                "content": "我的评价是",
                 "date": "2021/01/02"
             }
         ]
     },
     {
-        "idx": 2,
+        "id": 2,
         "imgUrl": "https://picx.zhimg.com/v2-17c2e7d2ab01f2d8456ddec223bd7085_1440w.jpg?source=172ae18b",
-        "title": "《琅琊榜》",
-        "text": "《琅琊榜》是由张艺谋执导，张国荣、张丰毅、刘德华、刘若英、陈赫等主演的古装武侠剧，于2013年10月16日在中国大陆上映。",
-        "teacher": "杨过",
+        "title": "计算机网络",
+        "text": "《计算机网络》是一门研究计算机网络技术的基础课。",
+        "teacher": "王晓东",
         "stars": 4,
         "comment": [
             {
-                "user": "小明",
-                "content": "这本书很棒！",
+                "user": { "name": "小明", "img": null, "id": 3 },
+                "content": "网课",
                 "date": "2021/01/01"
             },
             {
-                "user": "小红",
-                "content": "这本书很棒！",
+                "user": { "name": "小张", "img": null, "id": 5 },
+                "content": "就这样",
                 "date": "2021/01/02"
             }
         ]
     },
     {
-        "idx": 3,
+        "id": 3,
         "imgUrl": "https://picx.zhimg.com/v2-d27380526aa283a13e35cfef5762e812_1440w.jpg?source=172ae18b",
-        "title": "《倩女幽魂》",
-        "text": "《倩女幽魂》是金庸小说改编的古装武侠小说，作者是金庸。",
-        "teacher": "金庸",
+        "title": "编译原理",
+        "text": "《编译原理》是一门研究编译器设计的基础课。",
+        "teacher": "李云龙",
         "stars": 4,
         "comment": [
             {
-                "user": "小明",
-                "content": "这本书很棒！",
+                "user": { "name": "庄培鑫", "img": null, "id": 6 },
+                "content": "我是'人肉编译器'",
                 "date": "2021/01/01"
             },
             {
-                "user": "小红",
-                "content": "这本书很棒！",
+                "user": { "name": "小明", "img": null, "id": 3 },
+                "content": "上面的",
                 "date": "2021/01/02"
             }
         ]
     },
     {
-        "idx": 4,
+        "id": 4,
         "imgUrl": "https://picx.zhimg.com/v2-d27380526aa283a13e35cfef5762e812_1440w.jpg?source=172ae18b",
-        "title": "《倩女幽魂》",
-        "text": "《倩女幽魂》是金庸小说改编的古装武侠小说，作者是金庸。",
-        "teacher": "金庸",
+        "title": "算法与数据结构",
+        "text": "《算法与数据结构》是一门研究算法和数据结构的基础课。",
+        "teacher": "李治军",
         "stars": 4,
-        "comment": [
-            {
-                "user": "小明",
-                "content": "这本书很棒！",
-                "date": "2021/01/01"
-            },
-            {
-                "user": "小红",
-                "content": "这本书很棒！",
-                "date": "2021/01/02"
-            }
-        ]
+        "comment": []
     }
 ]

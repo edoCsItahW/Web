@@ -18,6 +18,7 @@
         "declaration": true,
         "emitDeclarationOnly": true,
         "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "outDir": "./dist",
         "target": "esnext",
         "moduleResolution": "node",
