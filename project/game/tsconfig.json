@@ -16,6 +16,11 @@
         "declaration": true,
         // 生成.d.ts文件
         "emitDeclarationOnly": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "useDefineForClassFields": true,
+        "decoratorAutoAccessors": true,
+        "skipLibCheck": true,
         // 只生成.d.ts, 不生成js文件
         "outDir": "./dist",
         "target": "ESNext",

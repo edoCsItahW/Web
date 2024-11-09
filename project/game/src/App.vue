@@ -10,27 +10,31 @@
 import { Three, Particle } from "@/assets/suport";
 import { ModelLoader } from "@/assets/model";
 import { AmbientLight, PointLight } from "three";
+import scene from "@/components/scene.vue";
 
-
-onload = () => {
-    const three = new Three("Poi");
-//    const particle = new Particle();
-//
-    new ModelLoader("Castle", "glb")
-        .load().then(model => {
-            three.render(model);
-    })
-}
+//onload = () => {
+//    const three = new Three("Poi");
+////    const particle = new Particle();
+////
+//    new ModelLoader("Castle", "glb")
+//        .load().then(model => {
+//            three.render(model);
+//    })
+//}
 
 
 export default {
     data() {
         return {}
+    },
+    components: {
+        scene
     }
 }
 </script>
 
 <template>
+    <scene/>
 </template>
 
 <style lang="sass">

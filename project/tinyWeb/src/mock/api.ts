@@ -1,6 +1,18 @@
+/**
+ * @file api.ts
+ * @author edocsitahw
+ * @version 1.1
+ * @date 2024/10/22 下午1:26
+ * @desc mock接口模拟文件
+ * @copyright CC BY-NC-SA 2024. All rights reserved.
+ * */
+
 // @ts-nocheck
 import 'reflect-metadata';
 
+/** @interface IApi
+ *
+ * */
 interface IApi<T = unknown> {
     data: T;
     code: number;
@@ -68,9 +80,8 @@ class Api {
         const data = response.body;
         switch (data.type) {
             case 'query':
-                if (typeof data.data === 'number')
-                    return users.filter(user => user.id === data.data)[0];
-                return !!users.find(user => user.name === data.data)
+                // 逻辑上可搜索的用户都应存在,如取不到第一个
+                return users.filter(user => user[typeof data.data === 'number' ? 'id' : 'name'] === data.data)[0];
             case 'check':
                 if (data.token === 'rootxxxxx')
                     return {name: "root", id: 1, img: null }
@@ -99,6 +110,16 @@ class Api {
     static upload(data: HttpRequest<{ file: File }>): IApi {
         console.log(data.body);
     }
+
+    @route('/api/search')
+    static search(data: HttpRequest<{ key: string }>): IApi {
+        console.log(data.body);
+        // 支持模糊查询,可: 用户名, 文章标题
+        // 返回: {type: 'article'|'user', data: string}[]
+        if (data.body.key.length > 1)
+            return [{ data: "文章标题" + data.body.key, type: 'article' }, { data: "用户名" + data.body.key, type: 'user' }]
+        return []
+    }
 }
 
 
@@ -113,5 +134,6 @@ export default [
     Api.user(),
     Api.login(),
     Api.register(),
-    Api.upload()
+    Api.upload(),
+    Api.search()
 ]

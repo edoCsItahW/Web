@@ -17,9 +17,10 @@
  * */
 import { defineComponent, reactive } from "vue";
 import { request, API_URL } from "confunc";
-import { mapState } from "pinia";
 import { Store_ } from "@/stores/stores";
 import { Courses } from "@/assets/types";
+import { mapState } from "pinia";
+
 import genHeader from "@/components/genHeader.vue";
 import avatarSvg from "@/assets/img/avatar.svg";
 import router from "@/router/router";
@@ -38,17 +39,37 @@ export default defineComponent({
                 atc: null as number | null,
                 curr: null as number | null,
                 star: 0,
+                /** @desc 评论块索引,控制评论显示
+                 * @property curr 当前评论块索引
+                 * */
                 cmt: { curr: null as number | null }
             },
+            /** @desc 用户评分数缓存
+             * key: 文章块id
+             * value: 对应星星数
+             * */
             starLog: new Map<number, number>(),
+            /** @desc 待填充与待发送的用户评论
+             * @property content 评论内容
+             * @property id 评论文章id
+             * */
             comment: { content: "", id: null as number | null },
+            /** @desc 用户评论缓存
+             * key: 文章块id
+             * value: 评论内容
+             * */
             commentLog: new Map<number, string>()
         };
     },
     setup() {
         const store = Store_();
+
+        /** @constant articles 文章列表
+         * @desc 响应式文章列表
+         * */
         const articles = reactive([]) as Courses;
         request(API_URL, "article", null).success(res => Object.assign(articles, res.data));
+
         return { store, articles, avatarSvg };
     },
     computed: {
@@ -86,10 +107,21 @@ export default defineComponent({
                 this.comment.content = this.commentLog.get(atcIdx) || ""; // 获取评论内容
             }
         },
+        /**
+         * @desc 提交评论
+         * @callback
+         * @vuese
+         * */
         subComment() {
             if (!this.store.user.id)
-                if (confirm(this.store.format(this.content.home.confirm))) this.store.updateUser({ name: "guest", id: 2, img: null });
+                if (confirm(this.store.format(this.content.home.confirm)))
+                    // 尚未记录用户信息,既不是登录用户也不是游客
+                    // 用户希望匿名
+                    this.store.updateUser({ name: "guest", id: 2, img: null });
+                // 用户希望登录
                 else return router.push("/login");
+
+            // ------------------- 发送评论请求 ------------------
 
             const date = new Date().toLocaleDateString();
             request(API_URL, "comment", { ...this.comment, date, uid: this.store.user.id }).then(res => {
@@ -97,13 +129,27 @@ export default defineComponent({
                     alert(this.store.format(this.content?.home.block.comment.success));
                     this.articles[this.flags.cmt.curr].comment.push({ content: this.comment.content, user: this.store.user, date });
                     this.comment.content = ""; // 清空评论内容
-                    this.commentLog.set(<number>this.comment.id, this.comment.content);
+                    this.commentLog.set(this.comment.id as number, this.comment.content);
                 }
             });
         },
+        /**
+         * @desc 访问其它用户个人信息页面
+         * @param user 用户信息
+         * */
         visit(user: { name: string; id: number; img: string | null }) {
+            // 发送用户信息至store中转到个人信息页面
             this.store.sendto(user, "profile");
             router.push("/profile");
+        },
+        subScore(courceId: number, score: number) {
+            // 发送用户评分至服务器
+            this.starLog.set(courceId, score);
+            request(API_URL, "score", { id: courceId, score })
+                .then(res => {  })
+        },
+        openAtcStyle(atcIdx: number | null) {
+            return this.flags.atc === atcIdx ? {} : { maxHeight: '110px', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', '-webkit-line-clamp': 5, '-webkit-box-orient': 'vertical'}
         }
     }
 });
@@ -113,11 +159,11 @@ export default defineComponent({
     <gen-header>
         <div class="home">
             <!--- 文章列表 --->
-            <div class="article" :style="{ color: color.font }">
+            <div class="article" :style="{ backgroundColor: color.backL , color: color.font }">
                 <!--- 文章块 --->
                 <div
                     class="article-block"
-                    v-for="(atc, index) in articles"
+                    v-for="(atc /** 文章块数据 */, index /** 文章块顺序索引 */) in articles"
                     @mouseenter="flags.curr = atc?.id"
                     @mouseleave="
                         flags.curr = null;
@@ -125,44 +171,60 @@ export default defineComponent({
                     "
                 >
                     <h3>{{ atc?.title }}</h3>
+                    <!-- 文章标题(课程名) -->
 
-                    <p>
-                        <span>{{ store.format(content?.home.block.teacher) }}</span>
-                        :
-                        <span>{{ atc?.teacher }}</span>
+                    <!-- 教师姓名 -->
+                    <p style="font-size: 14px" :style="{ color: color.border }">
+                        <span>{{ store.format(content?.home.block.teacher) }}</span>: <span>{{ atc?.teacher }}</span>
                     </p>
 
                     <!--- 文章内容 --->
-
-                    <div class="article-block-content" :style="{ flexDirection: flags.atc === atc?.id ? 'column' : 'row' }">
+                    <div class="article-block-content" :style="{ flexDirection: flags.atc === atc?.id ? 'column' : 'row' /** 当展开时改变布局 */ }">
                         <div class="article-block-content-img">
                             <img :src="atc?.imgUrl" alt="" :style="{ width: '100%', height: 'auto' }" />
                         </div>
 
-                        <div class="article-block-content-text">
+                        <div class="article-block-content-text" :style="openAtcStyle(atc?.id)" :class="flags.atc !== atc?.id ? 'react-text' : ''" @click="flags.atc = flags.atc === atc?.id ? null : atc?.id">
                             <p>{{ atc?.text }}</p>
                         </div>
                     </div>
 
                     <!--- 文章评分 --->
                     <div class="article-block-score">
+
+                        <div class="article-block-score-close" v-if="flags.atc === atc?.id" @click="flags.atc = null">  <!-- 关闭按钮 -->
+                            <p class="react-text">{{ store.format(content?.home.block.comment.fold) }}</p>
+                        </div>
+
                         <p>
-                            <span>{{ store.format(content?.home.block.score) }}</span>
+                            <span>{{ store.format(content?.home.block.score) }}</span>:
                             <!-- idx偏移1避免0分-_-! -->
                             <!-- `i` 为星星数 -->
-                            <span v-for="i in 5" v-html="svg.star(24, 24, active(atc?.id, i))" @mouseenter="flags.star = i" @click="starLog.set(atc?.id, i)"></span>
+                            <span
+                                v-for="i in 5"
+                                v-html="svg.star(24, 24, active(atc?.id, i))"
+                                @mouseenter="flags.star = i /** 鼠标移动点亮 */"
+                                @click="subScore(atc?.id, i) /** 缓存用户评分 */"
+                            ></span>
                         </p>
                     </div>
 
                     <!--- 文章评论 --->
                     <div class="article-block-comment">
                         <p class="react-text" @click="openComment(index, atc?.id)">
+                            <!-- 点击展开评论 -->
+
                             <span v-html="svg.comment()"></span>
-                            <span>{{ atc?.comment.length }}{{ store.format(content?.home.block.comment.num) }}</span>
+                            <!-- 评论图标 -->
+                            <span v-if="index === flags.cmt.curr">{{ store.format(content?.home.block.comment.close) }}</span>
+                            <!-- 评论数 -->
+                            <span v-else-if="atc?.comment.length > 0">{{ atc?.comment.length }}{{ store.format(content?.home.block.comment.num) }}</span>
+                            <span v-else>{{ store.format(content?.home.block.comment.no) }}</span>
                         </p>
 
                         <transition-group name="fade" tag="ul" style="width: 100%; padding-left: 20px" :style="{ display: index === flags.cmt.curr ? 'block' : 'none' }">
-                            <li class="article-block-comment-item" :key="index" v-for="cmt in atc?.comment">
+                            <!-- 评论列表 -->
+                            <li class="article-block-comment-item" :key="index" v-for="cmt /** 某条评论数据 */ in atc?.comment">
                                 <img style="cursor: pointer" :src="cmt?.user.img || avatarSvg" alt="" class="avatar" @click="visit(cmt?.user)" />
 
                                 <div class="article-block-comment-item-content">
@@ -172,8 +234,9 @@ export default defineComponent({
                                 </div>
                             </li>
 
-                            <div class="article-block-comment-input" key="input">
-                                <img :src="this.store.user.img || avatarSvg" alt="" class="avatar" />
+                            <!-- 评论输入框 -->
+                            <div class="article-block-comment-input" key="input" :style="{ marginTop: atc?.comment.length > 0 ? 0 : '10px' }">
+                                <img :src="this.store.user.img || avatarSvg" alt="avatar" class="avatar" />
 
                                 <textarea v-model="comment.content" :placeholder="store.format(content?.home.block.comment.ph)"></textarea>
 
@@ -185,11 +248,24 @@ export default defineComponent({
             </div>
 
             <!--- 统计信息 --->
-            <div class="statistics">
+            <div class="statistics" :style="{ backgroundColor: color.backL }">
                 <h3>{{ store.format(content?.home.statistics.title) }}</h3>
 
                 <div class="statistics-item">
-                    <!-- 🔥⭐️😄 -->
+                    <div class="statistics-item-hot">
+                        <span>🔥</span>
+                        <span>{{ store.format(content?.home.statistics.hot) }}</span>
+                    </div>
+
+                    <div class="statistics-item-top">
+                        <span>⭐️</span>
+                        <span>{{ store.format(content?.home.statistics.top) }}</span>
+                    </div>
+
+                    <div class="statistics-item-user">
+                        <span>😄</span>
+                        <span>{{ store.format(content?.home.statistics.user) }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,6 +300,7 @@ $rate-map: (article: 7, statistics: 3)
     display: flex
     flex-direction: column
     flex: map.get($rate-map, article)
+    margin: 5px
 
     &-block
         display: flex
@@ -245,6 +322,13 @@ $rate-map: (article: 7, statistics: 3)
         &-score
             display: flex
             flex-direction: row
+            position: relative
+
+            &-close
+                position: absolute
+                top: 5px
+                right: 5px
+                cursor: pointer
 
             svg
                 position: relative
@@ -255,6 +339,7 @@ $rate-map: (article: 7, statistics: 3)
             align-items: flex-start
             flex-direction: column
             justify-content: center
+            padding: 10px 0 0 10px
 
             &-input
                 display: flex
@@ -262,7 +347,7 @@ $rate-map: (article: 7, statistics: 3)
                 width: 100%
 
                 textarea
-                    width: 100%
+                    width: 80%
                     resize: none
                     font-size: 16px
                     padding: 10px
@@ -299,5 +384,17 @@ $rate-map: (article: 7, statistics: 3)
     flex: map.get($rate-map, statistics)
     flex-direction: column
     align-items: center
-    height: 100%
+    padding-top: 15px
+    margin: 5px
+    height: 97.5%
+
+    &-item
+        display: flex
+        flex-direction: column
+        align-items: self-start
+        width: 95%
+
+        div
+            margin-top: 10px
+
 </style>

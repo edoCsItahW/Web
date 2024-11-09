@@ -15,10 +15,11 @@
  * @desc 登录组件
  * @copyright CC BY-NC-SA 2024. All rights reserved.
  * */
-import { defineComponent } from "vue";
-import { Store_ } from "@/stores/stores";
-import { mapState } from "pinia";
 import { request, API_URL, $ } from "confunc";
+import { Store_ } from "@/stores/stores";
+import { defineComponent } from "vue";
+import { mapState } from "pinia";
+
 import genHeader from "@/components/genHeader.vue";
 import router from "@/router/router";
 
@@ -26,8 +27,19 @@ import router from "@/router/router";
 export default defineComponent({
     data() {
         return {
+            /** @desc 待填充与待发送的用户数据
+             * @property {string} name 用户名
+             * @property {string} password 密码
+             * @property {string} confirm 确认密码(仅注册时,且不提交)
+             * */
             userData: { name: "", password: "", confirm: "" },
-            haveUser: false
+            /** @desc 是否已有用户 */
+            haveUser: false,
+            /** @desc 缓存已经查询过的用户名,避免重复请求
+             * key: 用户名
+             * value: 是否已有用户
+             * */
+            nameLog: new Map<string, boolean>()
         };
     },
     setup() {
@@ -39,17 +51,24 @@ export default defineComponent({
             color: state => state.color,
             content: state => state.content
         }),
-        subAble() {
-            return !!this.userData.name && !!this.userData.password && (this.haveUser || this.userData.confirm === this.userData.password);
-        }
+        /**
+         * @summary 是否可提交
+         * @desc 当存在用户时,确保已填写密码,当不存在用户时,确保已填写密码,确认密码,且两次密码相同,则可提交
+         * @returns {boolean} 是否可提交
+         * */
+        subAble(): boolean { return !!this.userData.name && !!this.userData.password && (this.haveUser || this.userData.confirm === this.userData.password); }
     },
     methods: {
+        /**
+         * @summary 提交表单数据
+         * @desc 登录,注册共用此方法,根据是否存在用户,发送不同请求
+         * */
         submit() {
-            request(API_URL, this.haveUser ? "login" : "register", { name: this.userData.name, password: $.toHash(this.userData.password), time: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}` })
+            request(API_URL, this.haveUser ? "login" : "register", { name: this.userData.name, password: $.toHash(this.userData.password) /** 明文hash */, time: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}` })
                 .then(res => {
                     if (res.code === 200) {
                         this.store.updateUser(res.data.user);
-                        localStorage.setItem("token", res.data.token);
+                        localStorage.setItem("token", res.data.token);  // 缓存token
                         router.push("/");
                     }
                     else alert(res.msg);
@@ -61,10 +80,15 @@ export default defineComponent({
     },
     watch: {
         "userData.name": {
-            handler(nVal, oVal) {
+            /**
+             * @desc 当用户名发生变化时,请求服务器查询是否存在用户
+             * */
+            handler(nVal: string, oVal: string) {
                 if (nVal && nVal !== oVal)
-                    request(API_URL, "user", { data: this.userData.name, type: "query" })
-                        .success(res => this.haveUser = res.data);
+                    if (this.nameLog.has(nVal)) this.haveUser = this.nameLog.get(nVal);
+                    else
+                        request(API_URL, "user", { data: this.userData.name, type: "query" })
+                            .success(res => this.nameLog.set(nVal, this.haveUser = !!res.data));
                 else this.haveUser = false;
             },
             immediate: true
@@ -77,21 +101,23 @@ export default defineComponent({
 
     <genHeader>
 
-        <form class="login" :style="{ backgroundColor: color.backL, color: color.font }" @submit.prevent="submit">
+        <form class="login" :style="{ backgroundColor: color.backL, color: color.font }" @submit.prevent="submit /** 拦截默认提交 */">
 
+            <!-- 登录/注册标题 -->
             <div class="login-title">
 
                 <h1>{{ store.format(content?.login.title[haveUser ? 'login' : 'register']) }}</h1>
 
             </div>
 
+            <!-- 用户名/密码/确认密码输入框 -->
             <div class="login-group">
 
                 <input class="login-input" type="text" v-model="userData.name" :placeholder="store.format(content?.login.username)" />
 
                 <input class="login-input" type="password" v-model="userData.password" :placeholder="store.format(content?.login.password)" />
 
-                <transition>
+                <transition>  <!-- 密码确认框的过渡效果,确保仅在注册时才显示 -->
 
                     <input class="login-input" type="password" v-model="userData.confirm" :placeholder="store.format(content?.login.confirm)" v-if="!haveUser" />
 
@@ -99,6 +125,7 @@ export default defineComponent({
 
             </div>
 
+            <!-- 提交按钮 -->
             <div class="login-submit">
 
                 <button type="submit" :disabled="!subAble" :style="{ color: color.font, border: `1px solid ${color.border}` }">{{ store.format(content?.login.submit[haveUser ? 'login' :'register']) }}</button>
@@ -112,7 +139,7 @@ export default defineComponent({
 </template>
 
 <style lang="sass">
-@import "@/assets/global"
+@use "@/assets/global"
 .v-enter-active, .v-leave-active
     transition: opacity 0.3s ease-in-out
 

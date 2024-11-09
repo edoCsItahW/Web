@@ -41,6 +41,7 @@ import { request, API_URL } from "confunc";
 import { Store_ } from "@/stores/stores";
 import { defineComponent } from "vue";
 import { mapState } from "pinia";
+
 import router from "@/router/router";
 
 onload = () => { router.push("/"); };
@@ -50,12 +51,19 @@ onload = () => { router.push("/"); };
  * 1. 留言功能
  * 2. 评分功能
  *    - 评分统计
- * 3. ...
+ * 3. 安全问题
+ *    - SQL注入
+ *    - XSS攻击
+ *    - CSRF攻击
+ * 4. 优化
+ *    - 优化加载方式(一次性加载改成按需加载)
+ *    - 优化图片加载方式(懒加载)
+ * 5. ...
  * */
 
 export default defineComponent({
     name: "App",
-    data(vm) {
+    data() {
         return {
             /** @var {Object} screen 视口大小
              * @property {String} w 宽度
@@ -77,7 +85,6 @@ export default defineComponent({
                     if (res.code === 200) store.updateUser(res.data);
                     else console.warn(`${res.code} - Check user failed: ${res.msg}!`)
                 });
-
         return { store };
     },
     computed: {
@@ -93,7 +100,7 @@ export default defineComponent({
          * */
         updateSize() {
             this.screen.w = `${window.innerWidth}px`;
-            this.screen.h = `${window.innerHeight + window.scrollY + 10 /** 缓冲 */}px`;
+            this.screen.h = `${window.innerHeight + window.scrollY}px`;
             this.calcuHeader();
         },
         /**
@@ -142,7 +149,7 @@ export default defineComponent({
 @font-face
     font-family: "EnFont"
     src: url("@/assets/JetBrainsMono-Bold.ttf")
-    unicode-range: U+0000-0041, U+0042-007A
+    unicode-range: U+0000-0041, U+0042-007A  // 仅英文适应
 
 body
     margin: 0
@@ -157,14 +164,14 @@ ul
     list-style: none
     margin: 0
 
-.root
-    display: flex
-    flex-direction: column
-
 h1, h2, h3, h4, h5, h6
     margin: 0
     padding: 0
 
 p
     margin: 0
+
+.root
+    display: flex
+    flex-direction: column
 </style>

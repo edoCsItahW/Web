@@ -6,12 +6,9 @@
  - purposes is prohibited without the author's permission. If you have any questions or require
  - permission, please contact the author: 2207150234@st.sziit.edu.cn
  */
+import { createProdMockServer } from "vite-plugin-mock/client";
+import MockMethod from "./api";
 
-// https://on.cypress.io/api
-
-describe("My First Test", () => {
-    it("visits the app root url", () => {
-        cy.visit("/");
-        cy.contains("h1", "You did it!");
-    });
-});
+export function setupProdMockServer() {
+    createProdMockServer([...MockMethod]);
+}

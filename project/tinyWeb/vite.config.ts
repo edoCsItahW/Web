@@ -7,6 +7,9 @@ import vueDevTools from "vite-plugin-vue-devtools";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    esbuild: {
+        target: "es2020"
+    },
     css: {
         preprocessorOptions: {
             sass: {
@@ -15,7 +18,11 @@ export default defineConfig({
         }
     },
     plugins: [
-        vue(),
+        vue({
+            script: {
+                babelParserPlugins: ["decoratorAutoAccessors"]
+            }
+        }),
         vueDevTools(),
         viteMockServe({
             mockPath: "./src/mock",

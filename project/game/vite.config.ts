@@ -9,13 +9,22 @@
 import {fileURLToPath, URL} from 'node:url'
 
 import {defineConfig} from 'vite'
+import { templateCompilerOptions } from "@tresjs/core";
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    esbuild: {
+        target: 'es2020'
+    },
     plugins: [
-        vue(),
+        vue({
+            script: {
+                babelParserPlugins: ["decoratorAutoAccessors"]
+            },
+            ...templateCompilerOptions
+        }),
         vueDevTools()
     ],
     server: {

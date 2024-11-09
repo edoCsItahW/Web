@@ -15,36 +15,60 @@
  * @description 个人主页组件
  * @copyright CC BY-NC-SA 2024. All rights reserved.
  * */
-import { defineComponent } from "vue";
+import { request, API_URL } from "confunc";
 import { Store_ } from "@/stores/stores";
+import { defineComponent } from "vue";
+import { User } from "@/assets/types";
+
 import genHeader from "@/components/genHeader.vue";
 import avatarSvg from "@/assets/img/avatar.svg";
 import logoutSvg from "@/assets/img/logout.svg";
-import { request, API_URL } from "confunc";
 import router from "@/router/router";
 
 export default defineComponent({
     name: "Profile",
     data() {
         return {
-            user: undefined as { name: string; img: string; id: number } | undefined
+            /** @summary 用户信息
+             * @desc 目标用户信息,等待从数据库中获取
+             * @todo 获取详细信息
+             * @property {string} name - 用户名
+             * @property {string} img - 用户头像
+             * @property {number} id - 用户id
+             * */
+            user: undefined as User | undefined
         };
     },
     setup() {
         const store = Store_();
         return { store, avatarSvg, logoutSvg, router, API_URL };
     },
+    computed: {
+        notCurrUser() {
+            return (this.user && this.user?.name != this.store.user.name) || (!this.user && !this.store.user.name && this.user?.name == this.store.user.name);
+        }
+    },
     methods: {
+        /** @summary 上传头像
+         * @desc 上传头像并更新用户信息
+         * @param {Event} ev - 上传文件事件
+         * */
         upload(ev: Event) {
+            // 获取上传文件
             const file = (ev.target as HTMLInputElement).files?.item(0);
             if (file) {
                 const reader = new FileReader();
+                // 读取文件内容
                 reader.readAsDataURL(file);
-                reader.onload = () => {
-                    const name = encodeURIComponent(file.name);
+                reader.onload = () => {  // 读取完成
+                    const name = encodeURIComponent(file.name);  // 编码文件名
+
+                    // ------------------------ 上传头像 ------------------------
+
                     request(API_URL, "upload", { uid: this.store.user.id, data: reader.result as string, name })
                         .then(res => {
                             if (res.code === 200) {
+                                // NOTE: 当前用户无法修改其它用户的头像,则直接更新当前用户信息
                                 this.store.updateUser({ ...this.store.user, img: res.data });
                                 this.user = this.store.user;
                             } else alert(res.msg);
@@ -52,10 +76,13 @@ export default defineComponent({
                 };
             }
         },
+        /** @summary 触发上传头像
+         * @desc 触发上传头像事件
+         * */
         trigger() {
-            if (this.user && this.user?.name !== this.store.user.name) return;
-            const upload = document.getElementById("upload") as HTMLInputElement;
-            upload?.click();
+            // 仅当前用户可修改头像
+            if (this.notCurrUser) return;
+            (document.getElementById("upload") as HTMLInputElement)?.click();
         }
     },
     components: {
@@ -63,15 +90,22 @@ export default defineComponent({
     },
     watch: {
         "store.trans": {
-            // TODO: 按理说评论者id应该在数据库中都有对应 -- 处理匿名用户
-            handler(nVal: undefined | { data: { id: number }; target: string }, oVal) {
-                if (nVal && nVal.target === "profile" && nVal.data.id !== oVal?.data?.id)
-                    request(API_URL, "user", { data: nVal.data.id, type: "query" }).then(res => {
+            // 监听store中转数据
+            handler(nVal: undefined | { data: User, target: string }, oVal) {
+                // 当数据存在且目标为profile,id发生变化时
+                if (nVal && nVal.target === "profile" && nVal.data.id != oVal?.data?.id)
+
+                    // ------------------------ 获取用户信息 -----------------------
+
+                    request(API_URL, "user", { data: nVal.data.name || nVal.data.id, type: "query" }).then(res => {
                         if (res.code === 200 && res.data) {
                             this.user = res.data;
+                            // 重置用户信息
                             this.store.sendto(null, null);
-                        } else {
+                        }
+                        else {
                             alert("数据库缺失用户信息.");
+                            // 重置用户信息
                             this.store.sendto(null, null);
                             router.push("/");
                         }
@@ -85,43 +119,59 @@ export default defineComponent({
 </script>
 
 <template>
+
     <genHeader>
+
         <div class="profile">
+
+            <!-- 个人信息页横幅 -->
             <header class="profile-header">
-                <div class="profile-header-avatar" :style="{ cursor: user && user?.name !== store.user.name ? 'unset' : 'pointer' }">
+
+                <div class="profile-header-avatar" :style="{ cursor: notCurrUser ? 'unset' : 'pointer' /** 非当前用户不可点击 */ }">
+
                     <input id="upload" type="file" style="display: none" accept="image/*" @change="upload" />
 
                     <img :src="user?.img || store.user.img || avatarSvg" alt="avatar" @click="trigger" />
+
                 </div>
 
                 <div class="profile-header-info">
+
                     <h1 style="font-size: 2.5rem" class="profile-header-info-name">{{ user?.name || store.user.name || 'guest' }}</h1>
+
                 </div>
 
-                <div
-                    class="profile-header-logout"
-                    @click="
+                <div class="profile-header-logout" @click="
                         store.resetUser();
                         router.push('/login');
                     "
                 >
-                    <p class="react-text">
+
+                    <p class="react-text">  <!-- 登出 -->
                         <span>
                             <img :src="logoutSvg" alt="logout" />
                             <span>{{ store.format(store.content.profile.logout) }}</span>
                         </span>
                     </p>
+
                 </div>
+
             </header>
 
+            <!-- 留言板(当前用户呈现留言,否则提供留言板) -->
             <div class="profile-leaveword">
+
                 <textarea v-if="user?.name === store.user.name" :placeholder="store.format(store.content.profile.leaveword)"></textarea>
                 <p v-else></p>
+
             </div>
 
             <div class="profile-history"></div>
+
         </div>
+
     </genHeader>
+
 </template>
 
 <style lang="sass">

@@ -15,22 +15,28 @@
  * @desc 通用导航栏组件
  * @copyright CC BY-NC-SA 2024. All rights reserved.
  * */
-import { defineComponent } from "vue";
-import { Store_ } from "@/stores/stores";
-import { mapState } from "pinia";
-import { Theme } from "@/assets/global";
 // @ts-ignore
-import { zip, toRgb } from "confunc";
-import logoPng from "@/assets/img/logo.png";
-import lightSvg from "@/assets/img/light.svg";
-import darkSvg from "@/assets/img/dark.svg";
+import { zip, toRgb, request, API_URL } from "confunc";
+import { SerachRes, User } from "@/assets/types";
+import { Store_ } from "@/stores/stores";
+import { Theme } from "@/assets/global";
+import { defineComponent } from "vue";
+import { mapState } from "pinia";
+
 import avatarSvg from "@/assets/img/avatar.svg";
+import lightSvg from "@/assets/img/light.svg";
+import logoPng from "@/assets/img/logo.png";
+import darkSvg from "@/assets/img/dark.svg";
 
 export default defineComponent({
     data() {
         return {
+            // TODO: 路由列表,暂无其它内容
             urls: ["/", "/", "/", "/"],
+            // 缓存视效改变的目标元素
             targetCache: null as HTMLDivElement | null,
+            search: { key: "", res: null as SerachRes[] },
+            focusFlag: false
         };
     },
     setup() {
@@ -50,11 +56,6 @@ export default defineComponent({
         // logo大小
         logoSize() {
             return Math.min(this.win!.w / 15, this.win!.h / 15);
-        },
-        fiexd() {
-            console.log(this.headerCache?.offsetTop)
-            if (this.headerCache && window.scrollY) return window.scrollY > this.headerCache.offsetTop;
-            return false;
         }
     },
     methods: {
@@ -92,6 +93,21 @@ export default defineComponent({
                 this.targetCache = null;
             }
             (event.target as HTMLDivElement).style.backgroundColor = "transparent";
+        },
+        beginSearch() {
+            if (this.search.key.length > 0)
+                // TODO: 对输入进行限制,防止连续请求
+                request(API_URL, "search", { key: this.search.key }).success(res => this.search.res = res.data);
+            else
+                this.search.res = null;
+        },
+        resUrl(item: SerachRes) {
+            switch (item.type) {
+                case 'article': return `/#${item.data}`;
+                case 'user':
+                    this.store.sendto(item.data, 'profile');
+                    return '/profile';
+            }
         }
     }
 });
@@ -113,6 +129,7 @@ export default defineComponent({
 
             <ul>
 
+                <!-- 点击时将选项索引存入Store以便路由守卫操作 -->
                 <li :class="{ choose: idx === store.optIdx }" v-for="(opt, idx) in zip(content?.header.options, urls)" @click="store.optIdx = idx">
 
                     <router-link :to="opt[1]">{{ store.format(opt[0]) }}</router-link>
@@ -127,14 +144,40 @@ export default defineComponent({
         <div class="search" v-show="!store.controlOnly">
 
             <!-- &nbsp; &#160; -->
-            <input type="text" :placeholder="store.format(content?.header.search)" />
+            <input type="text" :placeholder="store.format(content?.header.search.ph)" v-model="search.key" @input="beginSearch" @focus="focusFlag = true" @blur="focusFlag = false" />
+
+            <transition>
+
+                <div class="search-res" :style="{ backgroundColor: color.back, border: `1px solid ${color.border}` }" v-if="search.res && search.res.length > 0 && focusFlag">
+
+                    <div class="arrow-up" :style="{ borderBottom: `8px solid ${color.back}` }"></div>
+
+                    <ul>
+
+                        <li class="search-res-item" v-for="item in search.res">
+
+                            <router-link :to="resUrl(item)">
+
+                                <span>{{ item.type === 'article' ? item.data : (item.data as User).name }}</span><h5 :style="{ color: color.border }">{{ store.format(content?.header.search.type) }}: {{ store.format(content?.header.search.map[item.type]) }}</h5>
+
+                            </router-link>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="search-res" :style="{ backgroundColor: color.back, border: `1px solid ${color.border}` }" v-else-if="search.key && focusFlag">{{ store.format(content?.header.search.no) }}</div>
+
+            </transition>
 
         </div>
 
         <!-- 控制按钮 -->
         <div class="control" :style="store.controlOnly ? { position: 'absolute', right: '10px', top: '10px' } : {}">
 
-            <div class="control-lang" v-html="svg?.lang()" @click="store.changeLang" @mouseenter="backColor($event.target as HTMLDivElement, color.back)" @mouseleave="resetColor"></div>
+            <div class="control-lang" v-html="svg?.lang() /** TODO: 防止修改svg导致XSS攻击 */" @click="store.changeLang" @mouseenter="backColor($event.target as HTMLDivElement, color.back)" @mouseleave="resetColor"></div>
 
             <div class="control-theme" @click="changeTheme" @mouseenter="backColor(<HTMLDivElement>$event.target, color.back)" @mouseleave="resetColor">
 
@@ -147,7 +190,7 @@ export default defineComponent({
         <!-- 用户交互 -->
         <div class="user" v-show="!store.controlOnly">
 
-            <router-link :to="!store.user.name || store.user.name === 'guest' ? '/login' : '/profile'">
+            <router-link :to="!store.user.name || store.user.name === 'guest' ? '/login' : '/profile'"> <!-- store未记录用户或者为访客时跳转到登录页,否则跳转到个人中心 -->
 
                 <img :src="store.user.img || avatarSvg" alt="avatar" class="avatar" style="cursor: pointer" />
 
@@ -173,6 +216,16 @@ export default defineComponent({
     transition: all 0.2s ease-in-out
     transform: scale(0.3)
 
+.arrow-up
+    position: absolute
+    top: -6px
+    left: 40%
+    width: 0
+    height: 0
+    border-left: 8px solid transparent
+    border-right: 8px solid transparent
+    z-index: -1
+
 $opt-map: (total: 20, border: 3)
 $opt-padding: #{map.get($opt-map, total)}px
 $opt-border: #{map.get($opt-map, border)}px
@@ -194,6 +247,7 @@ $opt-hover-padding: #{map.get($opt-map, total) - map.get($opt-map, border)}px
     background-color: inherit
     //justify-content: space-between
 
+// 板块比例表
 $rate-map: (logo: 1, options: 6, search: 1, control: 1, user: 1)
 .logo
     flex: map.get($rate-map, logo)
@@ -248,6 +302,41 @@ $rate-map: (logo: 1, options: 6, search: 1, control: 1, user: 1)
 
         &::placeholder
             font-size: 14px
+
+    &-res
+        position: absolute
+        top: 120%
+        width: 120%
+        z-index: 10
+        border-radius: 10px
+
+        ul
+            list-style: none
+            margin: 0
+            padding: 0
+
+        &-item
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            font-size: 14px
+            padding: 5px 5px 0 5px
+            overflow-x: hidden
+            text-overflow: ellipsis
+            text-wrap: nowrap
+
+            &:not(:last-child)
+                border-bottom: 1px solid #878787
+
+            &:last-child
+                padding-bottom: 5px
+
+            a
+                color: #4595ff
+                display: flex
+                flex-direction: column
+                width: 100%
+                text-align: left
 
     &::before
         content: ""

@@ -452,9 +452,17 @@ export async function sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/** @function zip
+ * @desc 打包多个数组
+ * @param {...Array} iterables - 多个数组
+ * @returns {Array} - 打包后的数组
+ * @example <caption>zip示例</caption>
+ * // 打包两个数组
+ * zip([1, 2, 3], ["a", "b", "c"]) => [[1, "a"], [2, "b"], [3, "c"]]
+ * */
 export function zip<T extends any[]>(...iterables: T): T[] {
     const result: T = [] as any;
-    for (let i = 0; i < Math.max(...iterables.map((v) => v.length)); i++) {
+    for (let i = 0; i < Math.max(...iterables.map(v => v.length)); i++) {
         const item: any[] = [];
         for (const arr of iterables) item.push(arr[i]);
         result.push(item as T[number]);

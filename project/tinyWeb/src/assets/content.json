@@ -6,7 +6,15 @@
             { "zh": "服务", "en": "Services" },
             { "zh": "联系", "en": "Contact" }
         ],
-        "search": { "zh": "搜索", "en": "Search" }
+        "search": {
+            "ph": { "zh": "搜索", "en": "Search" },
+            "no": { "zh": "没有找到结果", "en": "No results found" },
+            "map": {
+                "article": { "zh": "文章", "en": "Article" },
+                "user": { "zh": "用户", "en": "User" }
+            },
+            "type": { "zh": "类型", "en": "Type" }
+        }
     },
     "home": {
         "block": {
@@ -14,13 +22,19 @@
             "score": { "zh": "评分", "en": "Score" },
             "comment": {
                 "num": { "zh": "条评论", "en": "Comments" },
+                "no": { "zh": "暂无评论", "en": "No comments yet" },
+                "close": { "zh": "收起评论", "en": "Close Comments" },
                 "ph": { "zh": "理性评论,友善互动.", "en": "Reasonable comments, friendly interaction." },
                 "submit": { "zh": "提交", "en": "Submit" },
-                "success": { "zh": "评论成功", "en": "Comment submitted successfully" }
+                "success": { "zh": "评论成功", "en": "Comment submitted successfully" },
+                "fold": { "zh": "收起", "en": "Fold" }
             }
         },
         "statistics": {
-            "title": { "zh": "统计数据", "en": "Statistics Data" }
+            "title": { "zh": "统计数据", "en": "Statistics Data" },
+            "hot": { "zh": "热门课程", "en": "Hot Articles" },
+            "top": { "zh": "最高评分", "en": "Top Scores" },
+            "user": { "zh": "评论最多用户", "en": "User with Most Comments" }
         },
         "confirm": {"zh": "您尚未登录,是否匿名评论?", "en": "You are not logged in. Would you like to comment anonymously?"}
     },
