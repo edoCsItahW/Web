@@ -32,7 +32,7 @@ export default defineComponent({
              * @desc 信号与索引存储
              * @property atc 当前文章块索引
              * @property curr 当前鼠标悬停的文章块索引
-             * @property star 当前鼠标悬停块的星星数
+             * @property star 当前鼠标悬停块星星数
              * @property cmt 当前评论块索引,控制评论显示
              * */
             flags: {
@@ -266,6 +266,12 @@ export default defineComponent({
                         <span>😄</span>
                         <span>{{ store.format(content?.home.statistics.user) }}</span>
                     </div>
+                </div>
+
+                <div class="statistics-current">
+
+                    <!-- TODO: 当前浏览课程的统计信息 -->
+
                 </div>
             </div>
         </div>

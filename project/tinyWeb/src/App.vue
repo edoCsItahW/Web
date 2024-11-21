@@ -149,7 +149,7 @@ export default defineComponent({
 @font-face
     font-family: "EnFont"
     src: url("@/assets/JetBrainsMono-Bold.ttf")
-    unicode-range: U+0000-0041, U+0042-007A  // 仅英文适应
+    unicode-range: U+0000-0041, U+0042-007A  // 仅英文适用
 
 body
     margin: 0

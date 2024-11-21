@@ -1,5 +1,5 @@
 {
-    "name": "confunc",
+    "name": "utils",
     "version": "1.0.0",
     "description": "To avoid duplicate code implementation, this package provides some commonly used tools.",
     "main": "./src/index.ts",
